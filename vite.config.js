@@ -10,11 +10,11 @@ export default defineConfig({
     vue(),
     vueDevTools(),
   ],
-  base: '/jingya/',
+  base: '/',
   build: {
-    outDir: 'docs', // 指定输出目录
-    assetsDir: 'assets', // 静态资源目录
-    emptyOutDir: true // 构建前清空输出目录
+    outDir: 'docs',
+    assetsDir: 'assets',
+    emptyOutDir: true
   },
   resolve: {
     alias: {
