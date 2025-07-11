@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar">
     <RouterLink to="/" class="logo">
-      <img src="#" alt="网站Logo" />
+      <img src="../assets/Images/logo.png" alt="网站Logo" />
     </RouterLink>
     <ul class="nav-list">
       <li
@@ -87,21 +87,19 @@ const navItems = ref([
   justify-content: space-between;
   align-items: center;
   padding: 0 8vw;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 1);
   position: fixed;
   top: 0;
   right: 0;
   width: 100vw;
   height: 5rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07); */
   z-index: 1000;
 }
 
 .logo img {
-  width: 7rem;
-  height: 5rem;
+  width: 5rem;
   object-fit: contain;
-  background-color: skyblue; /* 占位，实际使用时可移除 */
   margin-left: 0;
 }
 

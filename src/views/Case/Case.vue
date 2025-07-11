@@ -281,9 +281,7 @@ const caseList = ref([
   align-items: center;
   justify-content: flex-start;
   padding: 1vw;
-  /* aspect-ratio:1/1;           保证正方形 */
   position: relative;
-  overflow: visible;           /* 允许弹窗溢出 */
   transition: box-shadow 0.3s, transform 0.3s;
   min-width: 180px;
   max-width: 400px;

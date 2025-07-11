@@ -1,8 +1,7 @@
 <template>
   <div class="floating-container">
-    <!-- 1. 手机号侧边栏按钮 -->
+    <!-- 1. 手机号侧边栏 -->
     <div class="floating-button phone-button" @mouseenter="showSidebar = 'phone'" @mouseleave="showSidebar = ''">
-      <!-- <span>联系</span> -->
       <transition name="slide">
         <div v-if="showSidebar === 'phone'" class="sidebar">
           <p>联系我们：12345678</p>
@@ -10,7 +9,7 @@
       </transition>
     </div>
 
-    <!-- 2. 二维码侧边栏按钮 -->
+    <!-- 2. 二维码侧边栏 -->
     <div class="floating-button qr-button" @mouseenter="showSidebar = 'qr'" @mouseleave="showSidebar = ''">
       <!-- <span>二维码</span> -->
       <transition name="slide">
@@ -20,7 +19,7 @@
       </transition>
     </div>
 
-    <!-- 3. 原返回顶部按钮 -->
+    <!-- 返回顶部 -->
     <button
       id="back-to-top"
       class="show"
@@ -38,7 +37,7 @@
 import { ref } from 'vue';
 
 const emit = defineEmits(['go-first']);
-const showSidebar = ref(''); // 控制侧边栏显示
+const showSidebar = ref('');
 
 const goToFirst = () => {
   emit('go-first');
@@ -126,7 +125,7 @@ background-image: url('../assets/Images/icon1.png');
   transform: translateX(20px);
 }
 
-/* 返回顶部按钮样式（原样式保留） */
+/* 返回顶部按钮样式 */
 #back-to-top {
   position: relative;
   width: 50px;

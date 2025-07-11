@@ -4,8 +4,7 @@
 <template>
   <div class="footer">
     <RouterLink to="/Home" class="logo">
-      <!-- 添加实际图片路径和alt描述 -->
-      <img src="#" alt="网站Logo" />
+      <img src="../assets/Images/logo.png" alt="网站Logo" />
     </RouterLink>
     <p>地址：中国苏州高新区苏州大学国家大学科技园通安园区7幢4层</p>
     <span>
@@ -26,7 +25,6 @@
   height: 100px;
   margin: 60px 0;
   object-fit: contain;
-  background-color: skyblue; /* 临时占位，实际使用时移除 */
 }
 .footer {
   text-align: center;

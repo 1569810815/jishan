@@ -75,7 +75,7 @@ const activeIndex = ref(0)
   align-items: center;
   box-sizing: border-box;
   padding: 0 2vw;
-  padding-top: 6.25rem; /* 用rem，防止大屏顶部过大 */
+  padding-top: 6.25rem;
 }
 
 .header-section {
@@ -114,7 +114,7 @@ const activeIndex = ref(0)
   display: flex;
   gap: 3vw;
   max-width: 70vw;
-  width: 100%;
+  width: 80%;
   margin: 0 auto;
   box-sizing: border-box;
   align-items: flex-start;
@@ -127,30 +127,34 @@ const activeIndex = ref(0)
   min-width: 12vw;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
 }
 
 .hardware-list {
+  width: 80%;
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.8vw;
-  /* 不要flex:1，避免被压缩 */
-  max-height: 60vh;
+  gap: 0.6vw;
+  max-height: 53vh;
   overflow-y: auto;
+  margin-bottom: 1.5vw;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  background-color: #f4f7ff;
+  border-radius: .8vw;
+
 }
 
 .hardware-list li {
   display: flex;
   align-items: center;
-  padding: 1vw 1.2vw;
-  background: #fff;
-  border-radius: 0.8vw;
+  padding: 0.8vw 2vw;
+  border-radius: 0.4vw;
   cursor: pointer;
   transition: all 0.3s;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
   font-size: 1.05vw;
   color: #333;
   margin-bottom: 0;
@@ -176,7 +180,7 @@ const activeIndex = ref(0)
 }
 
 .hardware-list li span {
-  font-size: 1.05vw;
+  font-size: .8vw;
   font-weight: 500;
   flex-shrink: 1;
   overflow: hidden;
@@ -189,17 +193,18 @@ const activeIndex = ref(0)
   align-items: center;
   justify-content: center;
   background: #fff;
-  border-radius: 1.2vw;
-  padding: 2vw;
+  border-radius: .8vw;
+  /* padding: 2vw; */
   box-shadow: 0 4px 20px rgba(0,0,0,0.08);
   min-width: 0;
   min-height: 0;
   overflow: hidden;
+  /* height: 50vh; */
 }
 
 .hardware-img {
   max-width: 100%;
-  max-height: 30vw;
+  max-height: 100%;
   width: auto;
   height: auto;
   object-fit: contain;
@@ -211,7 +216,7 @@ const activeIndex = ref(0)
 
 .btn {
   width: 18vw;
-  margin: 3vw auto 2vw auto;
+  margin: 0 auto;
   height: 3vw;
   font-size: 1.1vw;
   border-radius: 0.7vw;

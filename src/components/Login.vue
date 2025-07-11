@@ -69,15 +69,11 @@ function sendCode() {
 }
 
 function onAccountLogin() {
-  // 账号密码登录逻辑
-  // emit('login', { type: 'account', ...accountForm.value })
-  // 示例：console.log('账号登录', accountForm.value)
+// 账号密码登录
 }
 
 function onMobileLogin() {
-  // 手机号验证码登录逻辑
-  // emit('login', { type: 'mobile', ...mobileForm.value })
-  // 示例：console.log('手机登录', mobileForm.value)
+// 手机号登录
 }
 </script>
 
@@ -88,7 +84,6 @@ function onMobileLogin() {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* background: #f8faff; */
   background-size: cover;
   background-position: center;
 }

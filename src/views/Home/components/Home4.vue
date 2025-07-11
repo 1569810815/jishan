@@ -14,7 +14,7 @@
           {{ item.tatle }}
         </li>
       </ul>
-      <button @click="toSystem">查看详情</button>
+      <el-button @click="toSystem" type="primary">查看详情</el-button>
     </div>
     <div class="home4-right" :style="{ transform: `translateX(${rightOffset}px)` }">
       <transition name="fade" mode="out-in">
@@ -202,16 +202,15 @@ onBeforeUnmount(stopAutoSwitch)
   border-left: 0.35vw solid #2C5AFF;
 }
 .home4-left button {
-  margin-top: 2vw;
-  padding: 0.8vw 2.2vw;
-  background: #2C5AFF;
-  color: #fff;
-  border: none;
-  border-radius: 0.5vw;
+  width: 18vw;
+  margin: 0 auto;
+  height: 3vw;
   font-size: 1.1vw;
-  cursor: pointer;
-  transition: background 0.2s;
+  border-radius: 0.7vw;
+  display: block;
+  flex-shrink: 0;
 }
+
 .home4-left button:hover {
   background: #1747b0;
 }
