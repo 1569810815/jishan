@@ -77,9 +77,9 @@ const home4List = ref([
 const activeIndex = ref(0)
 
 // 动画控制变量
-const leftOffset = ref(-100)  // 左侧初始位置（从顶部滑入）
-const rightOffset = ref(100)  // 右侧初始位置（从底部滑入）
-const liOpacity = ref(home4List.value.map(() => 0)) // 列表项透明度
+const leftOffset = ref(-100)
+const rightOffset = ref(100)
+const liOpacity = ref(home4List.value.map(() => 0))
 
 // 动画函数
 function startAnimations() {
@@ -167,13 +167,13 @@ onMounted(() => {
   min-width: 0;
   min-height: 0;
   flex: 1 1 0;
-  max-width: 40vw;
+  max-width: 36vw;
   width: 100%;
   overflow: visible;
 }
 .home5-left {
   align-items: flex-start;
-  padding-left: 4vw;
+  max-width: 26vw;
 }
 .home5-left h3 {
   font-size: 2.2vw;
@@ -187,10 +187,8 @@ onMounted(() => {
   font-size: 1.1vw;
   color: #666;
   margin-bottom: 2vw;
-  /* background: rgba(255,255,255,0.7); */
   border-radius: 0.7vw;
   padding: 1vw 2vw;
-  /* box-shadow: 0 0.13vw 0.8vw rgba(44,90,255,0.05); */
   max-width: 28vw;
   line-height: 1.7;
   text-align: left;
@@ -245,27 +243,23 @@ onMounted(() => {
   padding-right: 2vw;
 }
 .advantage-card {
-  background: #fff;
-  border-radius: 1.5vw;
+  /* background: #fff; */
+  border-radius: 1.2vw;
   box-shadow: 0 0.25vw 2vw rgba(44,90,255,0.10);
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 2vw 1.5vw 1.5vw 1.5vw;
-  min-width: 22vw;
-  max-width: 38vw;
   width: 100%;
   box-sizing: border-box;
   min-height: unset;
   height: auto;
 }
 .advantage-img {
-  border-radius: 1.2vw;
   width: 100%;
   max-height: 16vw;
   object-fit: contain;
   margin-bottom: 1.2vw;
-  background: #f8faff;
 }
 .advantage-content {
   width: 100%;

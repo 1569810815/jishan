@@ -153,12 +153,12 @@ onBeforeUnmount(stopAutoSwitch)
 }
 .home4-left {
   flex: 1.2;
-  max-width: 32vw;
+  max-width: 36vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding-left: 4vw;
+  padding-left: 12vw;
 }
 .home4-left h2 {
   font-size: 2.2vw;

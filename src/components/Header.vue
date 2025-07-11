@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar">
     <RouterLink to="/" class="logo">
-      <img src="../assets/Images/logo.png" alt="网站Logo" />
+      <img src="../assets/Images/logo.png" alt="网站Logo" /><h1>JINGYA</h1>
     </RouterLink>
     <ul class="nav-list">
       <li
@@ -96,7 +96,9 @@ const navItems = ref([
   /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07); */
   z-index: 1000;
 }
-
+.logo{
+  text-align: center;
+}
 .logo img {
   width: 5rem;
   object-fit: contain;
