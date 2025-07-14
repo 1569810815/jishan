@@ -11,9 +11,13 @@
 式进行推广；线下与养老机构、社区服务中心等合作，
 推广智慧养老产品和服务。
     </p>
+    <tryout-btn></tryout-btn>
   </div>
 </template>
 
+<script setup>
+import TryoutBtn from '@/components/TryoutBtn.vue';
+</script>
 <style scoped>
 .home1{
   width: 100vw;
@@ -57,4 +61,5 @@
   box-shadow: none;
   padding: 0;
 }
+
 </style>

@@ -50,6 +50,7 @@
   </div>
   </div>
   <Footer></Footer>
+  <Consultation></Consultation>
 <ToTop @go-first="scrollToTop" />
 </template>
 
@@ -57,6 +58,7 @@
 import Common from '@/components/Common.vue'
 import ToTop from '@/components/ToTop.vue'
 import Footer from '@/components/Footer.vue'
+import Consultation from '@/components/Consultation.vue'
 import {ref} from 'vue'
 const scrollToTop = () => {
   if (typeof window !== 'undefined' && typeof window.scrollTo === 'function') {
@@ -354,6 +356,10 @@ const caseList = ref([
   pointer-events: none;
   white-space: normal;
   word-break: break-all;
+}
+.example ul li:nth-child(3n) .case-text-pop {
+  left: auto;
+  right: calc(100% + 10px);
 }
 @keyframes fadeInRight {
   from { opacity: 0; transform: translateX(2vw);}

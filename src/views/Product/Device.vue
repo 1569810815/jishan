@@ -53,10 +53,12 @@
     </el-tab-pane>
   </el-tabs>
   <Footer></Footer>
+  <Consultation></Consultation>
   <ToTop @go-first="scrollToTop" />
 </template>
 
 <script setup>
+import Consultation from '@/components/Consultation.vue'
 import Common from '@/components/Common.vue'
 import { ref, computed, watch } from 'vue'
 import ToTop from '@/components/ToTop.vue'

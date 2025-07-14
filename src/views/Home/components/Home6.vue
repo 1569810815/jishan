@@ -93,14 +93,14 @@ const activeIndex = ref(0)
 
 .header-section h3 {
   font-size: 1.8vw;
-  margin-bottom: 1.25vw;
+  margin-bottom: 1vw;
   color: #222;
   font-weight: bold;
   letter-spacing: 0.08em;
 }
 
 .header-section p {
-  font-size: 1.1vw;
+  font-size: .9vw;
   color: #666;
   line-height: 1.7;
   margin: 0 auto;
@@ -151,11 +151,11 @@ const activeIndex = ref(0)
 .hardware-list li {
   display: flex;
   align-items: center;
-  padding: 0.8vw 2vw;
+  padding: 0.5vw 2vw;
   border-radius: 0.4vw;
   cursor: pointer;
   transition: all 0.3s;
-  font-size: 1.05vw;
+  font-size: 1vw;
   color: #333;
   margin-bottom: 0;
   border-left: 0.35vw solid transparent;

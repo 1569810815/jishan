@@ -13,16 +13,19 @@
       <img src="../../assets/Images/image3.png" alt="">
       <img src="../../assets/Images/image4.png" alt="">
     </div>
-    <div><el-button type="primary" plain class="btn">点击申请免费试用</el-button></div>
+    <div><TryoutBtn></TryoutBtn></div>
   </div>
   <ToTop @go-first="scrollToTop" />
+  <Consultation></Consultation>
   <Footer></Footer>
 </template>
 
 <script setup>
 import Common from '@/components/Common.vue'
 import ToTop from '@/components/ToTop.vue';
+import TryoutBtn from '@/components/TryoutBtn.vue';
 import Footer from '@/components/Footer.vue';
+import Consultation from '@/components/Consultation.vue';
 const scrollToTop = () => {
   if (typeof window !== 'undefined' && typeof window.scrollTo === 'function') {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -53,13 +56,6 @@ h2{
 }
 .two{
   text-align: center;
-}
-.btn{
-  padding: 30px 40px;
-  font-size: 1.5rem;
-  font-weight: 500;
-  text-align: center;
-  margin-bottom: 18.75rem;
 }
 div:has(> .btn) {
   width: 100%;

@@ -31,7 +31,6 @@ const home2List = ref([
   {id:1008,url:'https://www.huiyangtong.com/images/icon8.webp',number:100000,project:'平台服务人员数',unit:'余'},
 ])
 
-// 动态数字指令
 function animateNumber(el, binding) {
   let start = 0
   const end = Number(binding.value)
@@ -64,10 +63,8 @@ const vAnimateNumber = {
   }
 }
 
-// 监听 active，切换到本页时触发动画
 watch(() => props.active, (val) => {
   if (val) {
-    // 触发数字动画（强制刷新指令）
     setTimeout(() => {
       document.querySelectorAll('.number').forEach((el, idx) => {
         animateNumber(el, { value: home2List.value[idx].number })

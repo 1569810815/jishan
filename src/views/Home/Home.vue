@@ -10,6 +10,7 @@
   >
     <SwiperSlide>
     <Home1 :active="activeIndex === 0"></Home1>
+    <Consultation></Consultation>
     </SwiperSlide>
 
 
@@ -54,6 +55,7 @@ import ToTop from '@/components/ToTop.vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Pagination,Mousewheel } from 'swiper/modules'
 import {ref} from 'vue'
+import Consultation from '@/components/Consultation.vue'
 import Home1 from './components/Home1.vue'
 import Home2 from './components/Home2.vue'
 import Home3 from './components/Home3.vue'

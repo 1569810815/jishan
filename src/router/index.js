@@ -12,6 +12,7 @@ import EnterpriseLogin from '@/views/Login/EnterpriseLogin.vue'
 import IndividualLogin from '@/views/Login/IndividualLogin.vue'
 import Sojourning from '@/views/Product/Sojourning.vue'
 import Apartment from '@/views/Product/Apartment.vue'
+import Tryout from '@/views/Tryout/Tryout.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -30,6 +31,7 @@ const router = createRouter({
     { path: '/device', name: 'device', component: Device },
     { path: '/enterpriseLogin', name: 'enterpriseLogin', component: EnterpriseLogin },
     { path: '/individualLogin', name: 'individualLogin', component: IndividualLogin },
+    { path: '/tryout', name: 'tryout', component: Tryout },
 
   ],
 

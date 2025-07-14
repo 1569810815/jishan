@@ -35,12 +35,14 @@
       </ul>
     </div>
   </div>
+  <Consultation></Consultation>
   <Footer></Footer>
   <ToTop @go-first="scrollToTop" />
 </template>
 
 <script setup>
 import Common from '@/components/Common.vue'
+import Consultation from '@/components/Consultation.vue'
 import { useRouter } from 'vue-router'
 import Footer from '@/components/Footer.vue';
 import ToTop from '@/components/ToTop.vue';

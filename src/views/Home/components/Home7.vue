@@ -36,12 +36,12 @@ const comparisonItems = ref([
 ])
 
 // 动画控制变量
-const leftOffsets = ref(comparisonItems.value.map(() => -100))  // 左侧初始位置
-const rightOffsets = ref(comparisonItems.value.map(() => 100))  // 右侧初始位置
+const leftOffsets = ref(comparisonItems.value.map(() => -100))
+const rightOffsets = ref(comparisonItems.value.map(() => 100))
 
 // 动画函数
 function startAnimations() {
-  const duration = 2000 // 动画持续时间
+  const duration = 2000
   const startTime = Date.now()
 
   function animateItems() {
@@ -77,7 +77,6 @@ watch(() => props.active, (val) => {
     leftOffsets.value = comparisonItems.value.map(() => -100)
     rightOffsets.value = comparisonItems.value.map(() => 100)
 
-    // 延迟100ms确保DOM更新完成
     setTimeout(() => {
       startAnimations()
     }, 100)
@@ -100,7 +99,7 @@ onMounted(() => {
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
-  padding-top: 6.25rem; /* 用rem，保证大屏和小屏顶部一致 */
+  padding-top: 6.25rem;
 }
 
 .home7 h3 {
@@ -108,7 +107,7 @@ onMounted(() => {
   color: #222;
   font-weight: bold;
   margin-top: 0;
-  margin-bottom: 1.2vw;
+  margin-bottom: 1vw;
   letter-spacing: 0.12em;
   text-align: center;
   line-height: 1.1;
@@ -118,7 +117,7 @@ onMounted(() => {
 .home7 > p {
   font-size: 1vw;
   color: #666;
-  margin-bottom: 2vw;
+  margin-bottom: 1.6vw;
   text-align: center;
   line-height: 1.7;
   max-width: 44vw;
@@ -133,7 +132,7 @@ onMounted(() => {
   width: 80vw;
   max-width: 1600px;
   margin: 0 auto;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.2);
   border-radius: 1.4vw;
   box-shadow: 0 8px 40px rgba(44,90,255,0.13);
   padding: 2vw 2vw;
@@ -149,11 +148,11 @@ onMounted(() => {
 .model li {
   display: flex;
   align-items: stretch;
-  margin-bottom: 1vw;
+  margin-bottom: .8vw;
   border-radius: 1vw;
   background: #f4f8ff;
   box-shadow: 0 2px 12px rgba(44,90,255,0.06);
-  font-size: 1vw;
+  font-size: .8vw;
   transition: box-shadow 0.3s, transform 0.3s;
 }
 

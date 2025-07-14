@@ -59,7 +59,6 @@ function startAnimations() {
   animateImage()
 }
 
-// 缓动函数 - 使动画更自然
 function easeOutCubic(t) {
   return 1 - Math.pow(1 - t, 3)
 }
