@@ -105,7 +105,7 @@ function goTo(type) {
   transition: color 0.2s;
 }
 .more-link:hover {
-  color: #1747b0;
+  color: #ef203a;
   text-decoration: underline;
 }
 .danamic ul, .information ul {
@@ -135,7 +135,7 @@ function goTo(type) {
   width: 180px;
   height: 180px;
   object-fit: cover;
-  border-radius: 14px;
+  border-radius: 6px;
   background: #fff;
   flex-shrink: 0;
 }

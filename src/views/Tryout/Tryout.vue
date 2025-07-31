@@ -1,8 +1,11 @@
 <template>
+  <Common :bg="shiyongbg">
+    <template #title>申请免费试用</template>
+    <template #subtitle>填写一下信息，我们的客户经理将尽快与您联系</template>
+  </Common>
   <div class="tryout">
     <div class="apply-form-container">
-      <h2 class="form-title">申请免费试用</h2>
-      <p class="form-subtitle">填写以下信息，我们的客户经理将尽快与您联系</p>
+      <h2 class="form-title">我要申请试用</h2>
 
       <el-form
         ref="applyForm"
@@ -90,7 +93,7 @@
       </el-form>
 
       <div class="form-footer">
-        <p>提交申请即表示您同意我们的 <a href="#">服务协议</a> 和 <a href="#">隐私政策</a></p>
+        <p>提交申请即表示您同意我们的 <a href="#">《服务协议》</a> 和 <a href="#">《隐私政策》</a></p>
       </div>
     </div>
     <Footer></Footer>
@@ -101,9 +104,11 @@
 <script setup>
 import { ref } from 'vue'
 import { ElMessage } from 'element-plus'
+import Common from '@/components/Common.vue'
 import Footer from '@/components/Footer.vue'
 import ToTop from '@/components/ToTop.vue'
 import { useRouter } from 'vue-router'
+import shiyongbg from '@/assets/Images/shiyongbg.png'
 const router = useRouter()
 // 表单数据
 const formData = ref({
@@ -197,11 +202,12 @@ const submitForm = async () => {
 .tryout{
   width: 100%;
   height: 100%;
-  padding-top: 12.5rem;
+  /* padding-top: 12.5rem; */
+  margin: -10rem 0 0 0;
 }
 .apply-form-container {
-  max-width: 600px;
-  margin: 0 auto;
+  max-width: 1000px;
+  margin: 6.25rem auto;
   padding: 2rem;
   background-color: #fff;
   border-radius: 8px;
@@ -209,22 +215,21 @@ const submitForm = async () => {
 }
 
 .form-title {
-  font-size: 1.5rem;
+  font-size:2rem;
+  font-family: "Alimama ShuHei", sans-serif;
   font-weight: bold;
   color: #333;
   text-align: center;
-  margin-bottom: 0.5rem;
+  margin-bottom: 3rem;
+  letter-spacing: 5px;
+}
+.el-form-item{
+  font-weight: bold;
 }
 
-.form-subtitle {
-  font-size: 0.9rem;
-  color: #666;
-  text-align: center;
-  margin-bottom: 2rem;
-}
 
 .apply-form {
-  padding: 0 1rem;
+  padding: 0 15rem;
 }
 
 .full-width {
@@ -233,9 +238,13 @@ const submitForm = async () => {
 
 .submit-btn {
   width: 100%;
-  padding: 12px;
+  padding: 1.5rem;
   font-size: 1rem;
-  margin-top: 1rem;
+  margin-top: 2rem;
+  background-color: #ef203a;
+}
+.submit-btn:hover {
+  background-color: #d81e32;
 }
 
 .form-footer {
@@ -246,7 +255,7 @@ const submitForm = async () => {
 }
 
 .form-footer a {
-  color: #1890ff;
+  color: #ef203a;
   text-decoration: none;
 }
 

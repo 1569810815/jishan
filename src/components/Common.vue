@@ -37,6 +37,8 @@ defineProps({
 .commonHeader h1 {
   color: #fff;
   font-size: clamp(32px, 6vw, 60px);
+  font-family: "Alimama ShuHei", sans-serif;
+  font-weight: bold;
   line-height: 2.4;
   margin: 0;
   text-shadow: 0 8px 8px rgba(0,0,0,0.8);

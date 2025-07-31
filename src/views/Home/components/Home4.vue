@@ -1,56 +1,105 @@
 <template>
   <div class="home4">
-    <div class="home4-left" :style="{ transform: `translateX(${leftOffset}px)` }">
-      <h2>业务模式</h2>
-      <p>立足行业核心需求，垂直打造出标准、易用、便捷的智慧康养综合管理平台</p>
-      <ul class="mode-list">
-        <li
-          v-for="(item, idx) in home4List"
-          :key="item.id"
-          :class="{active: idx === activeIndex}"
-          @click="activeIndex = idx"
-          :style="{ opacity: liOpacity[idx] }"
-        >
-          {{ item.tatle }}
-        </li>
-      </ul>
-      <el-button @click="toSystem" type="primary">查看详情</el-button>
-    </div>
-    <div class="home4-right" :style="{ transform: `translateX(${rightOffset}px)` }">
-      <transition name="fade" mode="out-in">
-        <div class="img-box" :key="activeIndex">
-          <div class="img-title">{{ home4List[activeIndex].tatle }}</div>
-          <img :src="home4List[activeIndex].url" :alt="home4List[activeIndex].tatle" />
+      <h2>主营业务</h2>
+      <p>集团以“老有所养、依、教、学、为、乐”为核心，构建覆盖长者全生命周期的错爱准话服务模块，提供全维度支持</p>
+    <div class="home4-container">
+      <div class="content-wrapper">
+        <div class="home4-left" :style="{ transform: `translateX(${leftOffset}px)` }">
+          <ul class="mode-list">
+            <li
+              v-for="(item, idx) in home4List"
+              :key="item.id"
+              :class="{active: idx === activeIndex}"
+              @click="activeIndex = idx"
+              :style="{ opacity: liOpacity[idx] }"
+            >
+              {{ item.tatle }}
+            </li>
+          </ul>
         </div>
-      </transition>
+        <div class="home4-right" :style="{ transform: `translateX(${rightOffset}px)` }">
+          <transition name="fade" mode="out-in">
+            <div class="img-box" :key="activeIndex">
+              <div>
+                <h3>{{ home4List[activeIndex].subheading1 }}</h3>
+                <p>{{ home4List[activeIndex].text1 }}</p>
+                <h3>{{ home4List[activeIndex].subheading2 }}</h3>
+                <p>{{ home4List[activeIndex].text2 }}</p>
+              </div>
+              <img :src="home4List[activeIndex].url" :alt="home4List[activeIndex].tatle" />
+            </div>
+          </transition>
+        </div>
+      </div>
     </div>
+    <!-- <el-button @click="toSystem" type="primary">查看详情</el-button> -->
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted, onBeforeUnmount, watch } from 'vue'
-import { useRouter } from 'vue-router';
+// import { useRouter } from 'vue-router';
+import home4Img1 from '@/assets/Images/home4Img1.png'
+import home4Img2 from '@/assets/Images/home4Img2.png'
+import home4Img3 from '@/assets/Images/home4Img3.png'
+import home4Img4 from '@/assets/Images/home4Img4.png'
+import home4Img5 from '@/assets/Images/home4Img5.png'
+
 
 const props = defineProps({ active: Boolean })
-const router = useRouter()
-const toSystem = () => {
-  router.push('/system')
-}
+// const router = useRouter()
+// const toSystem = () => {
+//   router.push('/system')
+// }
 
 const home4List = ref([
-  {id:1001,url:'https://www.huiyangtong.com/images/business-1.webp',tatle:'养老机构智慧管理系统'},
-  {id:1002,url:'https://www.huiyangtong.com/images/business-2.webp',tatle:'养老公寓智慧管理系统'},
-  {id:1003,url:'https://www.huiyangtong.com/images/business-3.webp',tatle:'社区居家养老服务系统'},
-  {id:1004,url:'https://www.huiyangtong.com/images/business-4.webp',tatle:'旅居养老服务系统'},
+  {id:1001,
+    url:home4Img1,
+    tatle:'实体项目',
+    subheading1:'社区嵌入式养老',
+    text1:'打造15分钟养老服务圈，涵盖日间照料、老年餐厅、文化娱乐、心理慰籍、健康管理等服务',
+    subheading2:'机构养老',
+    text2:'聚焦失能失智照护、康复护理、临终关怀等服务',
+  },
+  {id:1002,
+    url:home4Img2,
+    tatle:'政企协同',
+    subheading1:'居家养老上门服务',
+    text1:'输出标准化体系，通过智慧化管理提升效率，专业适老化改造筑牢居家安全网',
+    subheading2:'民生保障服务',
+    text2:'承接政府民生工程，为低保等群体提供兜底服务',
+  },{id:1003,
+    url:home4Img3,
+    tatle:'托管加盟',
+    subheading1:'托管加盟',
+    text1:'全流程托管养老院、社区项目，输出成熟运营经验，提供标准化加盟，实现快速复制落地',
+    subheading2:'公办养老院提质改造',
+    text2:'聚焦失能失智照护、康复护理、临终关怀等服务',
+  },{id:1004,
+    url:home4Img4,
+    tatle:'销售平台',
+    subheading1:'养老产品供应链',
+    text1:'集采等适老化产品，提供康复辅具租赁，推出康养套餐、健康管理包',
+    subheading2:'便民团购',
+    text2:'涵盖生活用品、文化活动用品等，满足老年人日常需求',
+  },
+  {id:1005,
+    url:home4Img5,
+    tatle:'生态拓展',
+    subheading1:'教育培训',
+    text1:'开展护理员认证，运营老年大学，提供适老化培训课程',
+    subheading2:'智慧研发',
+    text2:'研发智能硬件，输出智慧养老管理系统',
+  },
 ])
 
 const activeIndex = ref(0)
 let timer = null
 
 // 动画控制变量
-const leftOffset = ref(-300)  // 左侧初始位置（左侧滑入）
-const rightOffset = ref(300)  // 右侧初始位置（右侧滑入）
-const liOpacity = ref(home4List.value.map(() => 0)) // 列表项透明度
+const leftOffset = ref(-300)
+const rightOffset = ref(300)
+const liOpacity = ref(home4List.value.map(() => 0))
 
 const startAutoSwitch = () => {
   timer = setInterval(() => {
@@ -135,58 +184,82 @@ onBeforeUnmount(stopAutoSwitch)
 <style scoped>
 .home4 {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
   min-height: 100vh;
   width: 100vw;
-  background-image: url('https://img95.699pic.com/photo/30782/3100.jpg_wh860.jpg');
+  background-image: url('@/assets/Images/home4bg.png');
   background-size: cover;
   background-position: center;
-  padding-top: 6.25vw;
-  gap: 4vw;
+  padding: 6vw 12vw;
   box-sizing: border-box;
 }
-.home4-left, .home4-right {
-  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-  box-sizing: border-box;
-}
-.home4-left {
-  flex: 1.2;
-  max-width: 36vw;
+
+.home4-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  padding-left: 12vw;
+  margin-bottom: 3.125rem;
+  width: 100%;
 }
-.home4-left h2 {
+
+.content-wrapper {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+/* 第一行：标题 */
+h2 {
+  font-family: "Alimama ShuHei", sans-serif;
+  font-weight: bold;
   font-size: 2.2vw;
   color: #222;
-  margin-bottom: 1vw;
-  font-weight: bold;
+  margin-top: 6.25rem;
+  margin-bottom: 0vw;
   letter-spacing: 0.08em;
+  text-align: left;
+  width: 100%;
 }
-.home4-left p {
+
+/* 第二行：描述 */
+p {
   color: #666;
   font-size: 1.1vw;
-  margin-bottom: 2vw;
-  border-radius: 0.7vw;
-  padding: 1vw 2vw;
-  max-width: 28vw;
+  margin-top: 2.5rem;
+  margin-bottom: 3.75rem;
+  padding: 1vw 0;
   line-height: 1.7;
+  text-align: left;
 }
+
+.home4-left {
+  flex: 0 0 35%;
+  max-width: 40%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.home4-right {
+  flex: 0 0 55%;
+  max-width: 55%;
+  align-self: center;
+}
+
 .mode-list {
   list-style: none;
   padding: 0;
-  margin: 0 0 2vw 0;
   width: 100%;
 }
+
+.home4-left, .home4-right {
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
 .mode-list li {
   padding: 1vw 1.5vw;
   margin-bottom: 1vw;
   background: #fff;
-  border-radius: 0.8vw;
+  border-radius: 0.2vw;
   cursor: pointer;
   color: #333;
   font-size: 1.1vw;
@@ -195,61 +268,74 @@ onBeforeUnmount(stopAutoSwitch)
   font-weight: 500;
   opacity: 0;
 }
+
 .mode-list li.active,
 .mode-list li:hover {
-  background: #e8f0ff;
-  color: #2C5AFF;
-  border-left: 0.35vw solid #2C5AFF;
-}
-.home4-left button {
-  width: 18vw;
-  margin: 0 auto;
-  height: 3vw;
-  font-size: 1.1vw;
-  border-radius: 0.7vw;
-  display: block;
-  flex-shrink: 0;
+  background: rgba(239, 32, 58, 0.1);
+  color: #ef203a;
+  border-left: 0.35vw solid #ef203a;
 }
 
-.home4-left button:hover {
-  background: #1747b0;
-}
-.home4-right {
-  flex: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 18vw;
-}
 .img-box {
   position: relative;
-  width: 38vw;
+  width: 100%;
   max-width: 90vw;
-  border-radius: 1.5vw;
-  overflow: hidden;
+  border-radius: 0.4vw;
+  overflow: visible;
   box-shadow: 0 0.25vw 2vw rgba(44,90,255,0.10);
-  background: #fff;
+  background-image: url('@/assets/Images/shanImg.png');
+  background-size: 20%;
+  background-repeat: no-repeat;
+  background-position: 10% 100%;
+  display: flex;
+  align-items: flex-start;
+}
+
+
+.img-box > div {
+  padding: 3vw 0 0 3vw;
+  width: 60%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: 1vw;
+  padding-right: 2vw;
+  z-index: 2;
 }
+
+
 .img-box img {
-  width: 100%;
-  height: 22vw;
+  width: 50%;
+  height: 20vw;
   max-height: 60vh;
   object-fit: cover;
+  position: relative;
+  z-index: 1;
+  margin-left: -10%;
+}
+
+.img-box h3 {
+  font-size: 1.4vw;
+  color: #ef203a;
+}
+
+.img-box p {
+  margin: 0;
+  font-size: 0.9vw;
+  color: #666;
+  line-height: 1.5;
+}
+/* .el-button{
+  font-size: 0.8vw;
   display: block;
+  width: 18.75rem;
+  margin: 0 auto;
+  margin-top: -1vw;
+  height: 4rem;
+  background-color: #ef203a;
 }
-.img-title {
-  width: 100%;
-  text-align: center;
-  font-size: 1.3vw;
-  color: #222;
-  padding: 1vw 0;
-  background: #f4f8ff;
-  font-weight: 400;
-  letter-spacing: 0.06em;
-}
+.el-button:hover {
+  background-color: #d1021c;
+} */
 .fade-enter-active, .fade-leave-active {
   transition: all 0.5s cubic-bezier(.23,1.02,.64,.97);
 }

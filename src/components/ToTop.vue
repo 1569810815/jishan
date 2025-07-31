@@ -4,7 +4,7 @@
     <div class="floating-button phone-button" @mouseenter="showSidebar = 'phone'" @mouseleave="showSidebar = ''">
       <transition name="slide">
         <div v-if="showSidebar === 'phone'" class="sidebar">
-          <p>联系我们：12345678</p>
+          <p>联系我们：400-900-1173</p>
         </div>
       </transition>
     </div>
@@ -14,7 +14,7 @@
       <!-- <span>二维码</span> -->
       <transition name="slide">
         <div v-if="showSidebar === 'qr'" class="sidebar">
-          <img src="../assets/Images/icon3.jpg" alt="二维码" />
+          <img src="../assets/Images/icon3.png" alt="二维码" />
         </div>
       </transition>
     </div>
@@ -61,7 +61,7 @@ const goToFirst = () => {
   position: relative;
   width: 50px;
   height: 50px;
-  background-color: #2C5AFF;
+  background-color: #ef203a;
   color: white;
   border-radius: 10%;
   border: none;
@@ -86,7 +86,7 @@ background-image: url('../assets/Images/icon1.png');
   background-position: center;
 }
 .floating-button:hover {
-  background-color: #1a4bff;
+  background-color: #d1021c;
   transform: translateY(-5px);
 }
 
@@ -99,7 +99,7 @@ background-image: url('../assets/Images/icon1.png');
   position: absolute;
   right: 60px;
   top: 0;
-  width: 180px;
+  width: 200px;
   padding: 15px;
   background-color: white;
   border-radius: 8px;
@@ -130,7 +130,7 @@ background-image: url('../assets/Images/icon1.png');
   position: relative;
   width: 50px;
   height: 50px;
-  background-color: #2C5AFF;
+  background-color: #ef203a;
   color: white;
   border-radius: 10%;
   border: none;
@@ -143,7 +143,7 @@ background-image: url('../assets/Images/icon1.png');
 }
 
 #back-to-top:hover {
-  background-color: #1a4bff;
+  background-color: #d1021c;
   transform: translateY(-3px);
 }
 

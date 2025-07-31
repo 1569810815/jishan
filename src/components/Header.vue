@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar">
     <RouterLink to="/" class="logo">
-      <img src="../assets/Images/logo.png" alt="网站Logo" /><h1>JINGYA</h1>
+      <img src="../assets/Images/jishan1.png" alt="网站Logo" />
     </RouterLink>
     <ul class="nav-list">
       <li
@@ -22,7 +22,7 @@
         >
           <li v-for="child in item.children" :key="child.src">
             <RouterLink
-              :to="child.src"
+              :to="child.src.includes('#') ? { path: child.src.split('#')[0], hash: '#'+child.src.split('#')[1] } : child.src"
               class="dropdown-link"
               @click="closeDropdown"
             >
@@ -48,27 +48,32 @@ const closeDropdown = () => {
 const navItems = ref([
   { Name: "首页", src: "/" },
   {
-    Name: "产品简介",
-    src: "/system",
+    Name: "主营业务",
+    src: "/EntityItems",
     children: [
-      { Name: "养老机构智慧管理系统", src: "/system" },
-      { Name: "社区居家养老服务系统", src: "/community" },
-      { Name: "养老公寓智慧管理系统", src: "/apartment" },
-      { Name: "旅居养老服务系统", src: "/sojourning" },
+      { Name: "实体项目", src: "/EntityItems" },
+      { Name: "政企协同", src: "/Coordination" },
+      { Name: "托管加盟", src: "/EscrowFranchise" },
+      { Name: "销售平台", src: "/SalesPlatform" },
+      { Name: "生态拓展", src: "/EcologicalExpansion" },
       { Name: "智能硬件支持", src: "/device" },
     ],
   },
   { Name: "客户案例", src: "/case" },
   {
     Name: "新闻中心",
-    src: "/news",
+    src: "/information",
     children: [
       { Name: "新闻资讯", src: "/information" },
-      { Name: "行业动态", src: "/dynamic" },
+      { Name: "公司动态", src: "/dynamic" },
     ],
   },
   {
-    Name: "关于我们", src: "/about"
+    Name: "关于我们", src: "/about",
+    children: [
+      { Name: "公司介绍", src: "/about" },
+      { Name: "联系我们", src: "/about#contact" },
+    ],
   },
   {
     Name: "登录",
@@ -93,14 +98,11 @@ const navItems = ref([
   right: 0;
   width: 100vw;
   height: 5rem;
-  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07); */
   z-index: 1000;
 }
-.logo{
-  text-align: center;
-}
+
 .logo img {
-  width: 5rem;
+  width: 8rem;
   object-fit: contain;
   margin-left: 0;
 }
@@ -131,11 +133,11 @@ const navItems = ref([
 .nav-link:hover,
 .nav-link:focus,
 .nav-link.active {
-  color: #05943c;
+  color: #ef203a;
 }
 
 .nav-link:active {
-  color: #e63946;
+  color: #ef203a;
 }
 
 .nav-link:focus {
@@ -149,7 +151,7 @@ const navItems = ref([
   bottom: 0;
   width: 100%;
   height: 2px;
-  background-color: #05943c;
+  background-color: #ef203a;
   transform: scaleX(0);
   transition: transform 0.3s;
   transform-origin: right;
@@ -172,10 +174,9 @@ const navItems = ref([
   position: absolute;
   top: 100%;
   left: 0;
-  min-width: 160px;
+  min-width: 100px;
   background: #fff;
   box-shadow: 0 4px 16px rgba(0,0,0,0.10);
-  border-radius: 6px;
   z-index: 1001;
   padding: 8px 0;
 }
@@ -193,6 +194,6 @@ const navItems = ref([
 
 .dropdown-link:hover {
   background: #f5f5f5;
-  color: #05943c;
+  color: #ef203a;
 }
 </style>

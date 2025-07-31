@@ -1,17 +1,14 @@
 <template>
   <div class="home7">
-    <h3>汇养通全新的客户成功模式：以客户为中心，持续创造价值</h3>
+    <h2>全新的客户成功模式：以客户为中心，持续创造价值</h2>
     <p>以客户成功服务、客户支持服务、专业实施服务为核心，助力客户养老业务的成功</p>
     <div class="model">
+      <p class="text">积善之家养老</p>
       <ul>
         <li v-for="(item, index) in comparisonItems" :key="index">
-          <div class="lift" :style="{ transform: `translateX(${leftOffsets[index]}px)` }">
-            <h3 v-if="index === 0">京雅养老</h3>
-            <p v-else>{{ item.left }}</p>
-          </div>
-          <div class="right" :style="{ transform: `translateX(${rightOffsets[index]}px)` }">
-            <h3 v-if="index === 0">其他养老</h3>
-            <p v-else>{{ item.right }}</p>
+          <div>
+            <h2>0{{ item.id }}</h2>
+            <p>{{ item.text }}</p>
           </div>
         </li>
       </ul>
@@ -20,74 +17,21 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watch } from 'vue'
+import { ref} from 'vue'
 
-const props = defineProps({ active: Boolean })
+
 
 const comparisonItems = ref([
-  { left: '京雅养老', right: '其他养老' },
-  { left: '[主动]服务', right: '[被动]服务' },
-  { left: '客户需求驱动，提前发现问题并解决', right: '客户发现问题反馈后，排期进行解决' },
-  { left: '问题并解决顾问服务', right: '阶段性按需服务' },
-  { left: '即时需求响应', right: '需求响应滞后' },
-  { left: '行业资源足，不定期行业培训，邀请专家开讲', right: '跨行业开发，行业资源匮乏' },
-  { left: '持续升级迭代功能适配度佳', right: '系统迭代缓慢功能与新需求不对应' },
-  { left: '服务涵盖客户全周期，涉及多团队合作', right: '服务周期短，只能解决特定问题' }
+  {id:1,text:'主动服务'},
+  {id:2,text:'客户需求驱动，提前发现问题并解决'},
+  {id:3,text:'问题并解决顾问服务'},
+  {id:4,text:'即时需求响应'},
+  {id:5,text:'行业资源足，不定期行业培训，邀请专家开讲'},
+  {id:6,text:'持续升级迭代功能适配度佳'},
+  {id:7,text:'服务涵盖客户全周期，涉及多团队合作'},
+
 ])
 
-// 动画控制变量
-const leftOffsets = ref(comparisonItems.value.map(() => -100))
-const rightOffsets = ref(comparisonItems.value.map(() => 100))
-
-// 动画函数
-function startAnimations() {
-  const duration = 2000
-  const startTime = Date.now()
-
-  function animateItems() {
-    const elapsed = Date.now() - startTime
-    const progress = Math.min(elapsed / duration, 1)
-
-    // 使用缓动函数
-    const easedProgress = easeOutCubic(progress)
-
-    // 更新所有项的位置
-    comparisonItems.value.forEach((_, index) => {
-      leftOffsets.value[index] = -100 * (1 - easedProgress)
-      rightOffsets.value[index] = 100 * (1 - easedProgress)
-    })
-
-    if (progress < 1) {
-      requestAnimationFrame(animateItems)
-    }
-  }
-
-  animateItems()
-}
-
-// 缓动函数
-function easeOutCubic(t) {
-  return 1 - Math.pow(1 - t, 3)
-}
-
-// 监听active状态
-watch(() => props.active, (val) => {
-  if (val) {
-    // 重置状态
-    leftOffsets.value = comparisonItems.value.map(() => -100)
-    rightOffsets.value = comparisonItems.value.map(() => 100)
-
-    setTimeout(() => {
-      startAnimations()
-    }, 100)
-  }
-})
-
-onMounted(() => {
-  if (props.active) {
-    startAnimations()
-  }
-})
 </script>
 
 <style scoped>
@@ -99,12 +43,26 @@ onMounted(() => {
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
-  padding-top: 6.25rem;
+  justify-content: flex-start;
+  padding-top: 6.25vw;
 }
-
+h2{
+  font-size: 2.2vw;
+  color: #222;
+  font-family: "Alimama ShuHei", sans-serif;
+  font-weight: bold;
+  margin-top: 2vw;
+  margin-bottom: 1.2vw;
+  letter-spacing: 0.12em;
+  text-align: center;
+  text-shadow: 0 0.13em 0.33em rgba(239,32,58,0.08);
+  line-height: 1.1;
+  word-break: break-all;
+}
 .home7 h3 {
   font-size: 1.8vw;
   color: #222;
+  font-family: "Alimama ShuHei", sans-serif;
   font-weight: bold;
   margin-top: 0;
   margin-bottom: 1vw;
@@ -115,91 +73,117 @@ onMounted(() => {
 }
 
 .home7 > p {
-  font-size: 1vw;
+  font-size: 1.1vw;
   color: #666;
-  margin-bottom: 1.6vw;
+  margin-bottom: 1vw;
+  margin-top: 2.5rem;
   text-align: center;
   line-height: 1.7;
-  max-width: 44vw;
   margin-left: auto;
   margin-right: auto;
-  border-radius: 0.7vw;
   padding: 1vw 2vw;
   word-break: break-all;
 }
 
 .model {
-  width: 80vw;
-  max-width: 1600px;
+  position: relative;
+  width: 80%;
   margin: 0 auto;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 1.4vw;
-  box-shadow: 0 8px 40px rgba(44,90,255,0.13);
-  padding: 2vw 2vw;
-  box-sizing: border-box;
+  padding: 2rem 0;
+    background-image: url('@/assets/Images/home7bg.png');
+  background-size: 35%;
+  background-position:50% 15%;
+  background-repeat: no-repeat;
 }
-
+.text {
+  position: absolute;
+  font-size: 1.5vw;
+  color: #fff;
+  font-family: "Alimama ShuHei", sans-serif;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 2rem;
+  position: absolute;
+  top: 25vh;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
 .model ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, auto);
+  /* gap: 4.5vw 0vw; */
+  list-style: none;
   padding: 0;
   margin: 0;
-  list-style: none;
 }
 
 .model li {
-  display: flex;
-  align-items: stretch;
-  margin-bottom: .8vw;
-  border-radius: 1vw;
-  background: #f4f8ff;
-  box-shadow: 0 2px 12px rgba(44,90,255,0.06);
-  font-size: .8vw;
-  transition: box-shadow 0.3s, transform 0.3s;
-}
-
-.model li:last-child {
-  margin-bottom: 0;
-}
-
-.lift, .right {
-  flex: 1;
-  padding: 1vw 1vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 2.5vw;
-  font-size: 1vw;
-  font-weight: 600;
-  text-align: center;
-  box-sizing: border-box;
-}
-
-.lift {
-  border-right: 0.3vw solid #2C5AFF;
-  background: linear-gradient(90deg, #e8f0ff 80%, #fff 100%);
-  color: #1747b0;
+  background-image: url('@/assets/Images/home7juxing.png');
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 0;
+  padding-bottom: 35%;
   position: relative;
-  z-index: 1;
-  box-shadow: 2px 0 12px -8px #2C5AFF33;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.model li:hover .lift {
-  background: linear-gradient(90deg, #d0e2ff 85%, #fff 100%);
-  color: #2C5AFF;
+
+.model li:nth-child(1) { grid-area: 1 / 1; }
+.model li:nth-child(2) { grid-area: 2 / 1; }
+.model li:nth-child(3) { grid-area: 3 / 1; }
+.model li:nth-child(4) { grid-area: 3 / 2; }
+.model li:nth-child(5) { grid-area: 3 / 3; }
+.model li:nth-child(6) { grid-area: 2 / 3; }
+.model li:nth-child(7) { grid-area: 1 / 3; }
+
+.model li.empty {
+  visibility: hidden;
 }
 
-.right {
-  background: #fff;
-  color: #666;
-}
-
-.lift h3, .right h3 {
-  font-size: 1.1vw;
+.model li h2 {
+  font-family: "AlibabaPuHuiTiR", sans-serif;
+  font-size: 1.5vw;
+  display: inline;
+  color: #ef203a;
+  margin-bottom: 1rem;
   font-weight: bold;
+}
+.model li div{
+  text-align: center;
+  padding-top: 7vw;
+}
+.model li p {
+  font-size: .8vw;
+  font-weight: 700;
+  color: #333;
+  line-height: 1.6;
   margin: 0;
+
 }
 
-.lift p, .right p {
-  margin: 0;
-  font-size: 1vw;
+@media (max-width: 768px) {
+  .model ul {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .model li {
+    grid-area: auto !important;
+    min-height: 150px;
+  }
+
+  .home7 h2 {
+    font-size: 1.8rem;
+  }
+
+  .home7 > p {
+    font-size: 1rem;
+  }
 }
 </style>

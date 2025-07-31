@@ -11,6 +11,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@amap/amap-jsapi-loader": "^1.0.1",
     "element-plus": "^2.10.2",
     "pinia": "^3.0.1",
     "swiper": "^11.2.8",

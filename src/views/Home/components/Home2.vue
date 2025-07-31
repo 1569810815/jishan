@@ -1,34 +1,47 @@
 <template>
-  <div class="home2">
-    <h2>数字养老</h2>
-    <p class="desc">立足行业十年，懂开发更懂养老</p>
-    <div class="icon-list-wrap">
-      <ul class="icon-list">
-        <li v-for="item in home2List" :key="item.id">
-          <img :src="item.url" alt="">
-          <div class="icon-num">
-            <span class="number" v-animate-number="item.number"></span>
-            <span class="unit">{{ item.unit }}</span>
-          </div>
-          <div class="icon-project">{{ item.project }}</div>
-        </li>
-      </ul>
+
+    <div class="home2">
+      <div class="banxin">
+        <h2>数字养老</h2>
+        <p class="desc">科技重构养老体验</p>
+        <div class="icon-list-wrap">
+          <ul class="icon-list">
+            <li v-for="item in home2List" :key="item.id">
+              <img :src="item.url" alt="">
+              <div class="icon-num">
+                <span class="number" v-animate-number="item.number"></span>
+                <span class="unit">{{ item.unit }}</span>
+              </div>
+              <div class="icon-project">{{ item.project }}</div>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
-  </div>
+
 </template>
 
 <script setup>
 import { ref, watch } from 'vue'
+import home2icon1 from '@/assets/Images/home2icon1.png'
+import home2icon2 from '@/assets/Images/home2icon2.png'
+import home2icon3 from '@/assets/Images/home2icon3.png'
+import home2icon4 from '@/assets/Images/home2icon4.png'
+import home2icon5 from '@/assets/Images/home2icon5.png'
+import home2icon6 from '@/assets/Images/home2icon6.png'
+import home2icon7 from '@/assets/Images/home2icon7.png'
+import home2icon8 from '@/assets/Images/home2icon8.png'
+
 const props = defineProps({ active: Boolean })
 const home2List = ref([
-  {id:1001,url:'https://www.huiyangtong.com/images/icon1.webp',number:22,project:'项目落地省（直辖市）',unit:'个'},
-  {id:1002,url:'https://www.huiyangtong.com/images/icon4.webp',number:78,project:'运营智慧养老平台数',unit:'个'},
-  {id:1003,url:'https://www.huiyangtong.com/images/icon2.webp',number:1086,project:'合作机构',unit:'家'},
-  {id:1004,url:'https://www.huiyangtong.com/images/icon5.webp',number:18.08,project:'覆盖床位数',unit:'余万张'},
-  {id:1005,url:'https://www.huiyangtong.com/images/icon3.webp',number:5600,project:'平台社区数',unit:'余'},
-  {id:1006,url:'https://www.huiyangtong.com/images/icon6.webp',number:1200,project:'服务老人数',unit:'余万'},
-  {id:1007,url:'https://www.huiyangtong.com/images/icon7.webp',number:35,project:'综合体数',unit:'个'},
-  {id:1008,url:'https://www.huiyangtong.com/images/icon8.webp',number:100000,project:'平台服务人员数',unit:'余'},
+  {id:1001,url:home2icon1,number:22,project:'项目落地省（直辖市）',unit:'个'},
+  {id:1002,url:home2icon2,number:78,project:'运营智慧养老平台数',unit:'个'},
+  {id:1003,url:home2icon3,number:1086,project:'合作机构',unit:'家'},
+  {id:1004,url:home2icon4,number:18.08,project:'覆盖床位数',unit:'余万张'},
+  {id:1005,url:home2icon5,number:5600,project:'平台社区数',unit:'余'},
+  {id:1006,url:home2icon6,number:1200,project:'服务老人数',unit:'余万'},
+  {id:1007,url:home2icon7,number:35,project:'综合体数',unit:'个'},
+  {id:1008,url:home2icon8,number:100000,project:'平台服务人员数',unit:'余'},
 ])
 
 function animateNumber(el, binding) {
@@ -74,149 +87,155 @@ watch(() => props.active, (val) => {
 })
 </script>
 
-
 <style scoped>
 .home2 {
-  width: 100vw;
-  height: 100vh;
-  min-height: 100vh;
-  background: url('https://ts4.tc.mm.bing.net/th/id/OIP-C.3KRGsjhBoyb3HclTkm31rgHaEX?rs=1&pid=ImgDetMain&o=7&rm=3') center center/cover no-repeat;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  background-color: #fff;
+  min-height: 100vh;
+  width: 100vw;
+  padding: 6vw 12vw;
   box-sizing: border-box;
-  padding: 0;
+  background: url('@/assets/Images/home2bg.png') center center/cover no-repeat;
 }
-.home2 h2 {
-  color: black;
-  font-size: 3rem;
+
+.home2-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 3.125rem;
+  width: 100%;
+}
+
+h2 {
+  font-family: "Alimama ShuHei", sans-serif;
   font-weight: bold;
-  margin-bottom: 2rem;
-  letter-spacing: 2px;
-  text-shadow: 0 2px 8px rgba(44,90,255,0.08);
-}
-.home2 .desc {
-  color: #666;
-  font-size: 1.6rem;
-  margin-bottom: 2rem;
+  font-size: 2.2vw;
+  color: #222;
+  margin-top: 2vw;
+  margin-bottom: 0vw;
+  letter-spacing: 0.08em;
   text-align: center;
-  padding: 1em 2em;
-  max-width: 90vw;
+  width: 100%;
 }
+
+.desc {
+  color: #666;
+  font-size: 1.1vw;
+  margin-bottom: 3.75rem;
+  margin-top: 2.5rem;
+  padding: 1vw 0;
+  line-height: 1.7;
+  text-align: center;
+}
+
 .icon-list-wrap {
   width: 100%;
   display: flex;
   justify-content: center;
   box-sizing: border-box;
 }
+
 .icon-list {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 2.5rem 2rem;
-  padding: 0;
-  margin: 0;
+  gap: 2.5vw 2vw;
   list-style: none;
-  max-width: 1200px;
   width: 100%;
   box-sizing: border-box;
 }
+
 .icon-list li {
-  background: #fff;
-  border-radius: 18px;
-  box-shadow: 0 2px 16px rgba(44,90,255,0.08);
-  padding: 2rem 1.5rem 1.2rem 1.5rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 0.625vw;
+  box-shadow: 0 0.104vw 0.833vw rgba(44,90,255,0.2);
+  padding: 1.5vw 1vw 1vw 1vw;
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 120px;
-  min-height: 120px;
   transition: box-shadow 0.2s, transform 0.5s cubic-bezier(.23,1.02,.64,.97);
-  box-sizing: border-box;
 }
+
 .icon-list li:hover {
-  box-shadow: 0 4px 24px rgba(44,90,255,0.18);
-  transform: translateY(-8px) scale(1.04);
+  box-shadow: 0 0.208vw 1.25vw rgba(44,90,255,0.18);
+  transform: translateY(-0.417vw) scale(1.04);
 }
+
 .icon-list img {
-  width: 72px;
-  height: 72px;
-  margin-bottom: 1rem;
+  width: 3.75vw;
+  height: 3.75vw;
+  margin-bottom: 0.8vw;
   transition: transform 0.3s;
   object-fit: contain;
 }
+
 .icon-list li:hover img {
   transform: scale(1.12) rotate(-6deg);
 }
+
 .icon-num {
   display: flex;
   align-items: baseline;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4vw;
 }
+
 .icon-num .number {
-  font-size: 2.2rem;
-  font-weight: 400;
+  font-family: "Alimama ShuHei", sans-serif;
+  font-weight: bold;
+  font-size: 1.5vw;
   margin-right: 0.2em;
-  min-width: 60px;
+  min-width: 3.125vw;
   display: inline-block;
   text-align: right;
 }
+
 .icon-num .unit {
-  font-size: 1.1rem;
+  font-size: 0.8vw;
   color: #666;
 }
+
 .icon-project {
   color: #333;
-  font-size: 1.05rem;
+  font-size: 0.9vw;
   text-align: center;
   line-height: 1.5;
   word-break: break-all;
 }
 
-/* 响应式适配 */
-@media (max-width: 1200px) {
-  .icon-list {
-    max-width: 98vw;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.2rem;
-  }
-  .icon-list li {
-    min-width: 100px;
-    min-height: 100px;
-    padding: 1.2rem 0.8rem;
-  }
-  .icon-list img {
-    width: 48px;
-    height: 48px;
-    margin-bottom: 0.6rem;
-  }
-  .home2 h2 { font-size: 2.1rem; }
-  .home2 .desc { font-size: 1.1rem; }
-  .icon-num .number { font-size: 1.3rem; min-width: 36px; }
-  .icon-project { font-size: 0.95rem; }
-}
-@media (max-width: 700px) {
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
   .home2 {
-    padding: 0.5rem 0;
+    padding: 6vw 5vw;
   }
+
   .icon-list {
-    grid-template-columns: 1fr;
-    gap: 0.8rem;
-    max-width: 99vw;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3vw;
   }
-  .icon-list li {
-    min-width: 80px;
-    min-height: 80px;
-    padding: 0.8rem 0.3rem;
+
+  h2 {
+    font-size: 4vw;
+    margin-top: 4rem;
   }
+
+  .desc {
+    font-size: 2vw;
+  }
+
   .icon-list img {
-    width: 36px;
-    height: 36px;
-    margin-bottom: 0.3rem;
+    width: 6vw;
+    height: 6vw;
   }
-  .home2 h2 { font-size: 1.3rem; }
-  .home2 .desc { font-size: 0.95rem; padding: 0.5em 0.5em; }
-  .icon-num .number { font-size: 1rem; min-width: 24px; }
-  .icon-project { font-size: 0.85rem; }
+
+  .icon-num .number {
+    font-size: 3vw;
+  }
+
+  .icon-num .unit {
+    font-size: 1.6vw;
+  }
+
+  .icon-project {
+    font-size: 1.8vw;
+  }
 }
 </style>

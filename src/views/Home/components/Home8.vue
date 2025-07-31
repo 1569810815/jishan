@@ -1,15 +1,15 @@
 <template>
   <div class="home8">
-    <div class="home8-left" :style="{ opacity: contentOpacity }">
-      <h3>客户成功</h3>
-      <p>汇养通智慧康养综合管理平台已服务超过1600余家养老机构</p>
+    <div class="banxin">
+      <div class="home8-left" :style="{ opacity: contentOpacity }">
+      <h2>成功案例</h2>
+      <p>京雅智慧康养综合管理平台已服务超过1600余家养老机构</p>
       <p>全新的客户成功服务模式</p>
       <h3 class="sub-title">付费 = 服务刚开始！</h3>
       <p>以客户成功服务、客户支持服务、专业实施服务为核心，助力客户养老业务的成功</p>
-      <el-button class="button" type="primary" plain @click="toCase">更多客户案例</el-button>
+      <el-button type="primary" plain @click="toCase">更多客户案例</el-button>
     </div>
-    <div class="home8-right" :style="{ opacity: imageOpacity }">
-      <img src="https://www.huiyangtong.com/images/partner-1.webp" alt="客户案例">
+
     </div>
   </div>
 </template>
@@ -87,71 +87,75 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.home8-left, .home8-right {
-  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.home8-right img {
-  transition: transform 0.6s ease;
-}
 .home8 {
+    background-image: url('@/assets/Images/home8bg.png');
+  background-size: cover;
+  background-position: center;
   width: 100vw;
   height: 100vh;
-  background: #f8faff;
   display: flex;
+  position: relative;
+  overflow: hidden;
+}
+.banxin {
+  width: 100%;
+  display: flex;
+  max-width: 1920px;
+  margin: 0 auto;
   align-items: center;
-  justify-content: center;
-  gap: 4vw;
-  box-sizing: border-box;
-  padding: 0;
+  justify-content: space-between;
+  gap: 40px;
+
 }
 .home8-left {
-  flex: 1.1;
-  max-width: 520px;
+  flex: 1;
+  max-width: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding-left: 6vw;
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.home8-left h3 {
-  font-size: 5rem;
-  color: #2C5AFF;
+.home8-left h2 {
+  font-family: "Alimama ShuHei", sans-serif;
   font-weight: bold;
-  margin-bottom: 1.2rem;
-  letter-spacing: 2px;
+  font-size: 2.2vw;
+  color: #222;
+  margin-bottom: 2vw;
+  letter-spacing: 0.08em;
+  text-align: left;
+  width: 100%;
 }
 .home8-left .sub-title {
-  color: #ff7a00;
+  font-family: "Alimama ShuHei", sans-serif;
+  color: black;
   font-size: 2.2rem;
   margin: 2rem 0 1.2rem 0;
-  font-weight: 700;
+  font-weight: bold;
   letter-spacing: 1px;
 }
 .home8-left p {
   font-size: 1.5rem;
-  color: #333;
-  margin-bottom: 1.2rem;
+  color: rgba(0, 0, 0, 0.6);
+  margin: 1.2rem 0;
   text-align: left;
   line-height: 1.7;
 }
-.button{
-  padding: 1.25rem;
+.el-button{
+  background-color: #ef203a ;
+  color: #fff;
+  padding: 30px 60px;
   font-size: 1.5rem;
-}
-.home8-right {
-  flex: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 400px;
-}
-.home8-right img {
-  object-fit: cover;
-  border-radius: 22px;
-  background: #f8faff;
+  font-weight: 500;
+  text-align: center;
+  line-height: 5px;
+  margin: 50px auto;
   display: block;
 }
+.el-button:hover {
+  background-color: #d1021c;
+}
+
 @media (max-width: 900px) {
   .home8 { flex-direction: column; gap: 2vw; }
   .home8-left, .home8-right { max-width: 100%; padding-left: 0; align-items: center;}

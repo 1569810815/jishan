@@ -1,16 +1,33 @@
 <template>
   <div class="home6">
-    <!-- 标题区 -->
-    <div class="header-section">
-      <h3>智能硬件支持</h3>
-      <p>
-        汇养通智能物联IoT场景，汇集多种先进技术，对接海量智能硬件设备，深化场景，24小时监测老人健康状况，充分预防老人摔倒无人知、生命体征数据异常等状况，遇突发状况实时定位报警，汇养通电脑端、手机APP端、监管大屏端均可收到报警信息，可查看报警位置及现场实时画面。系统对异常状况精准判断、及时报警，有章可循、有据可查、有人监督，充分预防纠纷，规避机构运营风险。
-      </p>
-    </div>
 
-    <!-- 内容区 -->
+     <div class="banxin">
+
+      <h2>特色功能支持</h2>
+      <p>
+        智能物联智慧养老通过物联网、AI和大数据技术的深度融合，构建全天候、多维度的健康监护体系。系统整合毫米波雷达、智能传感设备和AI行为识别算法，实时监测老人心率、血压、血氧等生命体征，精准识别跌倒风险，实现7×24小时无感守护。3秒内触发三级报警机制，通过声光警示、APP推送和短信通知等多渠道预警，并同步显示老人精准位置和现场实时画面，确保护理人员快速响应。
+      </p>
+
+
+
     <div class="content-wrapper">
-      <!-- 左侧列表 -->
+      <!-- 左侧图片 -->
+      <div class="phone-container">
+        <img class="phone-bg" :src="phonebg" alt="手机背景" />
+        <div class="hardware-image-container">
+          <transition name="fade-slide" mode="out-in">
+            <img
+              v-if="home6List[activeIndex]"
+              class="hardware-img"
+              :key="home6List[activeIndex].img"
+              :src="home6List[activeIndex].img"
+              :alt="home6List[activeIndex].tatle"
+            />
+          </transition>
+        </div>
+      </div>
+
+      <!-- 右侧列表 -->
       <div class="hardware-list-container">
         <ul class="hardware-list">
           <li
@@ -20,164 +37,192 @@
             @click="activeIndex = idx"
             @mouseenter="activeIndex = idx"
           >
-            <img class="icon" :src="item.icon" :alt="item.tatle" />
             <span>{{ item.tatle }}</span>
           </li>
         </ul>
-      </div>
-
-      <!-- 右侧图片 -->
-      <div class="image-container">
-        <transition name="fade-slide" mode="out-in">
-          <img
-            v-if="home6List[activeIndex]"
-            class="hardware-img"
-            :key="home6List[activeIndex].img"
-            :src="home6List[activeIndex].img"
-            :alt="home6List[activeIndex].tatle"
-          />
-        </transition>
+        <el-button @click="toDevice" class="btn" type="primary">查看更多设备信息</el-button>
       </div>
     </div>
-    <el-button @click="toDevice" class="btn" type="primary">查看更多设备信息</el-button>
+     </div>
+
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router';
+import phonebg from '@/assets/Images/home6phonebg.png'
+import home6Img1 from '@/assets/Images/home6Img1.png'
+import home6Img2 from '@/assets/Images/home6Img2.png'
+import home6Img3 from '@/assets/Images/home6Img3.png'
+import home6Img4 from '@/assets/Images/home6Img4.png'
+import home6Img5 from '@/assets/Images/home6Img5.png'
+import home6Img6 from '@/assets/Images/home6Img6.png'
+
+
 const router = useRouter()
 const toDevice = ()=>{
   router.push('/device')
 }
 const home6List = ref([
-  {id:1001,icon:'https://www.huiyangtong.com/images/sos.webp',img:'https://www.huiyangtong.com/images/hardware-1.webp',tatle:'SOS报警'},
-  {id:1002,icon:'https://www.huiyangtong.com/images/radar.webp',img:'https://www.huiyangtong.com/images/hardware-2.webp',tatle:'雷达监测'},
-  {id:1003,icon:'https://www.huiyangtong.com/images/moon.webp',img:'https://www.huiyangtong.com/images/hardware-3.webp',tatle:'睡眠监测'},
-  {id:1004,icon:'https://www.huiyangtong.com/images/accident.webp',img:'https://www.huiyangtong.com/images/hardware-4.webp',tatle:'跌倒报警'},
-  {id:1005,icon:'https://www.huiyangtong.com/images/bed.webp',img:'https://www.huiyangtong.com/images/hardware-5.webp',tatle:'离床报警'},
-  {id:1006,icon:'https://www.huiyangtong.com/images/wristband.webp',img:'https://www.huiyangtong.com/images/hardware-6.webp',tatle:'手环报警'},
-  {id:1007,icon:'https://www.huiyangtong.com/images/post-office.webp',img:'https://www.huiyangtong.com/images/hardware-7.webp',tatle:'健康随访箱'},
-  {id:1008,icon:'https://www.huiyangtong.com/images/clock.webp',img:'https://www.huiyangtong.com/images/hardware-8.webp',tatle:'进入时间'},
-  {id:1009,icon:'https://www.huiyangtong.com/images/man-and-opened-exit-door.webp',img:'https://www.huiyangtong.com/images/hardware-9.webp',tatle:'出入次数'},
-  {id:1010,icon:'https://www.huiyangtong.com/images/pill.webp',img:'https://www.huiyangtong.com/images/hardware-10.webp',tatle:'用药提醒'},
+  {id:1001,img:home6Img1,tatle:'睡眠监测-报告分析'},
+  {id:1002,img:home6Img2,tatle:'长者日常'},
+  {id:1003,img:home6Img3,tatle:'实时状态监控'},
+  {id:1004,img:home6Img4,tatle:'应急事件处理'},
+  {id:1005,img:home6Img5,tatle:'健康数据采集'},
+  {id:1006,img:home6Img6,tatle:'物资申领'},
 ])
 const activeIndex = ref(0)
 </script>
 
 <style scoped>
+.banxin {
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+
+}
 .home6 {
-  width: 100vw;
-  min-height: 100vh;
-  background: #f8faff;
   display: flex;
+  width: 100%;
+  min-height: 100vh;
+  background-image: url('@/assets/Images/home6bg.png');
+  background-size: cover;
+  background-position: center;
+   width: 100vw;
+  box-sizing: border-box;
   flex-direction: column;
   align-items: center;
-  box-sizing: border-box;
-  padding: 0 2vw;
-  padding-top: 6.25rem;
+  justify-content: flex-start;
+  padding-top: 6.25vw;
+
+}
+h2 {
+  font-size: 2.2vw;
+  color: #222;
+  font-family: "Alimama ShuHei", sans-serif;
+  font-weight: bold;
+  margin-top: 2vw;
+  margin-bottom: 1.2vw;
+  letter-spacing: 0.12em;
+  text-align: center;
+  text-shadow: 0 0.13em 0.33em rgba(44,90,255,0.08);
+  line-height: 1.1;
+  word-break: break-all;
 }
 
-.header-section {
-  text-align: center;
-  margin-bottom: 2.5vw;
-  max-width: 60vw;
+p {
+  font-size: 1.1vw;
+  color: #666;
+  margin-top: 2.5rem;
+  text-align: left;
+  line-height: 1.7;
   margin-left: auto;
   margin-right: auto;
-  padding: 0 1vw;
-  flex-shrink: 0;
-  z-index: 1;
-  position: relative;
-  background: transparent;
+  padding: 1vw 0;
+  word-break: break-all;
 }
-
-.header-section h3 {
-  font-size: 1.8vw;
-  margin-bottom: 1vw;
-  color: #222;
-  font-weight: bold;
-  letter-spacing: 0.08em;
-}
-
-.header-section p {
-  font-size: .9vw;
-  color: #666;
-  line-height: 1.7;
-  margin: 0 auto;
-  max-width: 70vw;
-  padding: 1vw 2vw;
-  position: relative;
-  z-index: 1;
-}
-
 .content-wrapper {
   display: flex;
+  justify-content:space-around;
   gap: 3vw;
   max-width: 70vw;
   width: 80%;
   margin: 0 auto;
   box-sizing: border-box;
-  align-items: flex-start;
+  align-items:center;
   position: relative;
   z-index: 2;
 }
 
+/* 左侧手机图片容器 */
+.phone-container {
+  flex: 0 0 40%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 35vw;
+}
+
+.phone-bg {
+  width: 100%;
+  max-width: 30vw;
+  height: auto;
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
+}
+
+.hardware-image-container {
+  position: absolute;
+  width: 100%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  z-index: 1;
+  margin-top: 1rem;
+}
+
+.hardware-img {
+  width: 100%;
+  height: 100%;
+  max-width: 30vw;
+  object-fit: contain;
+  transition: all 0.3s;
+}
+
+/* 右侧列表容器 */
 .hardware-list-container {
+  margin-bottom: 100px;
   width: 18vw;
   min-width: 12vw;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  align-items: center;
 }
 
 .hardware-list {
-  width: 80%;
+  width: 100%;
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 2vw 0;
   display: flex;
   flex-direction: column;
-  gap: 0.6vw;
-  max-height: 53vh;
+  gap: 0.4vw;
+  max-height: 40vh;
   overflow-y: auto;
-  margin-bottom: 1.5vw;
-  border: 1px solid #ccc;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  background-color: #f4f7ff;
-  border-radius: .8vw;
 
+  border-radius: .2vw;
 }
 
 .hardware-list li {
   display: flex;
   align-items: center;
-  padding: 0.5vw 2vw;
-  border-radius: 0.4vw;
+  padding: 1vw 2vw;
+  border-radius: 0vw;
   cursor: pointer;
   transition: all 0.3s;
-  font-size: 1vw;
+  background-color: #fff;
+  font-size: 0.9vw;
   color: #333;
-  margin-bottom: 0;
+  margin-bottom: 1.25rem;
   border-left: 0.35vw solid transparent;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  height: 2.5vw;
 }
 
 .hardware-list li:hover,
 .hardware-list li.active {
-  background: #e8f0ff;
-  color: #2C5AFF;
-  border-left: 0.35vw solid #2C5AFF;
+  background: rgba(239, 32, 58, 0.1);
+  color: #ef203a;
+  border-left: 0.35vw solid #ef203a;
 }
 
-.hardware-list li .icon {
-  width: 1.5vw;
-  height: 1.5vw;
-  margin-right: 1vw;
-  object-fit: contain;
-  flex-shrink: 0;
-}
 
 .hardware-list li span {
   font-size: .8vw;
@@ -187,40 +232,31 @@ const activeIndex = ref(0)
   text-overflow: ellipsis;
 }
 
-.image-container {
-  flex: 1 1 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #fff;
-  border-radius: .8vw;
-  /* padding: 2vw; */
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-  min-width: 0;
-  min-height: 0;
-  overflow: hidden;
-  /* height: 50vh; */
-}
-
-.hardware-img {
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  border-radius: 1vw;
-  transition: all 0.3s;
-  background: #f8faff;
-  display: block;
-}
-
-.btn {
-  width: 18vw;
+.el-button {
+  background-color: #ef203a;
+  width: 100%;
   margin: 0 auto;
-  height: 3vw;
-  font-size: 1.1vw;
-  border-radius: 0.7vw;
+  font-size: 1vw;
+  border-radius: 0.2vw;
   display: block;
   flex-shrink: 0;
+}
+
+/* 过渡动画 */
+.fade-slide-enter-active,
+.fade-slide-leave-active {
+  transition: all 0.5s cubic-bezier(.23,1.02,.64,.97);
+}
+
+.fade-slide-enter-from,
+.fade-slide-leave-to {
+  opacity: 0;
+  transform: translateX(2vw) scale(0.96);
+}
+
+.fade-slide-enter-to,
+.fade-slide-leave-from {
+  opacity: 1;
+  transform: translateX(0) scale(1);
 }
 </style>

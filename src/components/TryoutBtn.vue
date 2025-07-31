@@ -12,8 +12,12 @@ const goTryout = () =>{
 }
 </script>
 
-<style scoped>
+<style>
 .el-button.btn {
+  background: linear-gradient(to right, #d1021c 50%, #ef203a 50%);
+  background-size: 200% 100%;
+  background-position: right;
+  color: #fff;
   padding: 30px 40px;
   font-size: 1.5rem;
   font-weight: 500;
@@ -21,5 +25,12 @@ const goTryout = () =>{
   line-height: 5px;
   margin: 50px auto;
   display: block;
+  border: none;
+  transition: background-position 0.3s ease;
+  z-index: 1;
+}
+
+.el-button.btn:hover {
+  background-position: left;
 }
 </style>

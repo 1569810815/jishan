@@ -56,7 +56,6 @@ const submitForm = () => {
 
 <style scoped>
 .email-form {
-  padding: 15px;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -78,7 +77,7 @@ const submitForm = () => {
 .form-group textarea {
   width: 100%;
   padding: 8px 12px;
-  border: 1px solid #ddd;
+  border: 1px solid #ef203a;
   border-radius: 4px;
   font-family: inherit;
   outline:none;
@@ -86,14 +85,14 @@ const submitForm = () => {
 }
 
 .form-group textarea {
-  height: 70px;
+  height: 4.375rem;
   resize: vertical;
 }
 
 .submit-btn {
   margin-top: auto;
   padding: 10px;
-  background-color: #1890ff;
+  background-color: #ef203a;
   color: white;
   border: none;
   border-radius: 4px;
@@ -102,6 +101,13 @@ const submitForm = () => {
 }
 
 .submit-btn:hover {
-  background-color: #40a9ff;
+  background-color: #d1021c;
+}
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ef203a'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.5em center;
+  background-size: 1.5em;
 }
 </style>

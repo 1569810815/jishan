@@ -1,9 +1,11 @@
 <template>
   <div class="home5">
-    <div class="home5-left" :style="{ transform: `translateY(${leftOffset}px)` }">
-      <h3>平台优势</h3>
-      <p>从营销到服务 从管理到运营 全面助力养老机构信息化建设</p>
-      <ul class="advantage-list">
+    <h2>平台优势</h2>
+    <p>从营销到服务 从管理到运营 全面助力养老机构信息化建设</p>
+    <div class="home5-container">
+      <div class="content-wrapper">
+        <div class="home5-left" :style="{ transform: `translateY(${leftOffset}px)` }">
+      <ul class="mode-list">
         <li
           v-for="(item, idx) in home4List"
           :key="item.id"
@@ -11,7 +13,6 @@
           @click="activeIndex = idx"
           :style="{ opacity: liOpacity[idx] }"
         >
-          <span class="dot"></span>
           <span>{{ item.tatle }}</span>
         </li>
       </ul>
@@ -19,7 +20,6 @@
     <div class="home5-right" :style="{ transform: `translateY(${rightOffset}px)` }">
       <transition name="fade-slide" mode="out-in">
         <div class="advantage-card" :key="activeIndex">
-          <img class="advantage-img" :src="home4List[activeIndex].url" :alt="home4List[activeIndex].tatle" />
           <div class="advantage-content">
             <h4 class="advantage-title">{{ home4List[activeIndex].tatle }}</h4>
             <div class="advantage-subheading">{{ home4List[activeIndex].subheading }}</div>
@@ -29,48 +29,59 @@
               <li>{{ home4List[activeIndex].text3 }}</li>
             </ul>
           </div>
+          <img class="advantage-img" :src="home4List[activeIndex].url" :alt="home4List[activeIndex].tatle" />
+
         </div>
       </transition>
     </div>
+      </div>
+
+    </div>
+
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted, watch } from 'vue'
+import yingxiaoImg from '@/assets/Images/yingxiao.png'
+import yunyingImg from '@/assets/Images/yunying.png'
+import fuwuImg from '@/assets/Images/fuwu.png'
+import anxinImg from '@/assets/Images/anxin.png'
+
 const props = defineProps({ active: Boolean })
 
 const home4List = ref([
   {id:1001,
-    url:'https://www.huiyangtong.com/images/platform-1.webp',
+    url:yingxiaoImg,
     tatle:'营销',
-    subheading:'全链路拓客支撑 提高入住率',
-    text1:'多渠道获客:覆盖多种营销场景，全渠道流量引流',
-    text2:'智能化跟进:行为轨迹跟踪，客户画像，线索转化',
-    text3:'促成交变现:精准判断客户意向，随时洞察客户需求'
+    subheading:'智慧营销 · 精准触达银龄需求',
+    text1:'多渠道适老入口:大字版APP/语音助手/子女代操作，覆盖不同数字能力老人',
+    text2:'VR沉浸式体验:养老院VR漫游展示，咨询转化率提升40%',
+    text3:'需求智能预判:健康数据联动服务推荐，异常体征自动推送护理套餐'
   },
   {id:1002,
-    url:'https://www.huiyangtong.com/images/platform-2.webp',
+    url:yunyingImg,
     tatle:'运营',
-    subheading:'全维度数据分析 降低运营成本',
-    text1:'可视化看板:实时掌握最新数据',
-    text2:'场景化应用:全流程数字化，指标智能预警',
-    text3:'全流程追踪:多源数据整合，全景画像洞察'
+    subheading:'智能运营 · 降本增效',
+    text1:'数字化管理中台:床位/护工/药品全流程线上化，人力效率提升55%',
+    text2:'AI应急响应:跌倒监测+一键呼叫，5分钟快速救援',
+    text3:'智能耗材管理:物联网实时监测物资，损耗降低33%'
   },
   {id:1003,
-    url:'https://www.huiyangtong.com/images/platform-3.webp',
+    url:fuwuImg,
     tatle:'服务',
-    subheading:'全周期上线指导 员工上手快',
-    text1:'拟物化设计:辨识度高，学习成本低，即学即用上手快',
-    text2:'智能化护理:一扫二点三确认，快速完成护理日志',
-    text3:'全流程记录:全流程记录，未服务超时提醒，风险预警'
+    subheading:'温情服务 · 科技有温度',
+    text1:'24小时安全守护:智能药盒+水浸传感器，预防居家意外',
+    text2:'情感关怀系统:AI识别情绪波动，自动触发视频慰问',
+    text3:'代际数字桥梁:电子回忆录+活动报告，家庭互动提升3倍'
   },
   {id:1004,
-    url:'https://www.huiyangtong.com/images/platform-4.webp',
+    url:anxinImg,
     tatle:'安心',
-    subheading:'家属沟通无壁垒 提高续费率',
-    text1:'数字化账单:月度账单一键可查，支持家属在线缴费',
-    text2:'可视化护理:每日护理项目、护理情况均有记录',
-    text3:'系统化数据:心率、呼吸、血压等数据系统完整'
+    subheading:'安心保障 · 全程可信赖',
+    text1:'医疗级数据安全:本地化存储+权限分级，CCRC认证保障',
+    text2:'服务区块链存证:助浴/用药全程上链，纠纷率下降76%',
+    text3:'政府合作背书:与120急救数据互通，响应速度提升60%'
   },
 ])
 
@@ -148,157 +159,171 @@ onMounted(() => {
 
 <style scoped>
 .home5 {
-  width: 100vw;
-  min-height: 100vh;
-  background: #f8faff;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-  padding-top: 6.25vw;
-  gap: 4vw;
-}
-.home5-left, .home5-right {
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  min-width: 0;
-  min-height: 0;
-  flex: 1 1 0;
-  max-width: 36vw;
+    background-color:#fff;
+  min-height: 100vh;
+  width: 100vw;
+
+  padding: 6vw 12vw;
+  box-sizing: border-box;
+}
+
+.home5-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 3.125rem;
   width: 100%;
-  overflow: visible;
 }
-.home5-left {
-  align-items: flex-start;
-  max-width: 26vw;
+
+.content-wrapper {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  /* gap: 2vw; */
 }
-.home5-left h3 {
+h2 {
+  font-family: "Alimama ShuHei", sans-serif;
+  font-weight: bold;
   font-size: 2.2vw;
   color: #222;
-  font-weight: bold;
-  margin-bottom: 1.2vw;
-  letter-spacing: 0.12em;
+  margin-top: 6.25rem;
+  margin-bottom: 0vw;
+  letter-spacing: 0.08em;
   text-align: left;
+  width: 100%;
 }
-.home5-left p {
-  font-size: 1.1vw;
+
+/* 第二行：描述 */
+p {
   color: #666;
-  margin-bottom: 2vw;
-  border-radius: 0.7vw;
-  padding: 1vw 2vw;
-  max-width: 28vw;
+  font-size: 1.1vw;
+  margin-bottom: 3.75rem;
+  margin-top: 40px;
+  padding: 1vw 0;
   line-height: 1.7;
   text-align: left;
 }
-.advantage-list {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 2vw 0;
-  width: 100%;
-}
-.advantage-list li {
-  display: flex;
-  align-items: center;
-  padding: 1vw 1.5vw;
-  margin-bottom: 1vw;
-  background: #fff;
-  border-radius: 0.8vw;
-  cursor: pointer;
-  color: #333;
-  font-size: 1.1vw;
-  transition: background 0.2s, color 0.2s, opacity 0.5s;
-  border-left: 0.35vw solid transparent;
-  font-weight: 500;
-  position: relative;
-  opacity: 0;
-}
-.advantage-list li .dot {
-  width: 0.8vw;
-  height: 0.8vw;
-  border-radius: 50%;
-  background: #dbe7ff;
-  margin-right: 1vw;
-  transition: background 0.2s;
-}
-.advantage-list li.active,
-.advantage-list li:hover {
-  background: #e8f0ff;
-  color: #2C5AFF;
-  border-left: 0.35vw solid #2C5AFF;
-}
-.advantage-list li.active .dot,
-.advantage-list li:hover .dot {
-  background: #2C5AFF;
-}
-.advantage-list li[style*="opacity: 1"] {
-  opacity: 1;
-}
-.home5-right {
-  align-items: center;
-  justify-content: center;
-  min-width: 18vw;
-  padding-right: 2vw;
-}
-.advantage-card {
-  /* background: #fff; */
-  border-radius: 1.2vw;
-  box-shadow: 0 0.25vw 2vw rgba(44,90,255,0.10);
+/* 左侧样式保持不变 */
+.home5-left {
+  flex: 0 0 35%;
+  max-width: 40%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+}
+
+/* 右侧新布局 */
+.home5-right {
+  flex: 0 0 55%;
+  max-width: 55%;
+  align-self: center;
+}
+
+.advantage-card {
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  padding: 2vw 1.5vw 1.5vw 1.5vw;
+  gap: 2vw;
+  padding: 2vw;
   width: 100%;
   box-sizing: border-box;
-  min-height: unset;
-  height: auto;
 }
+
 .advantage-img {
-  width: 100%;
-  max-height: 16vw;
+  flex: 0 0 40%;
+  max-height: 22vw;
   object-fit: contain;
-  margin-bottom: 1.2vw;
+  border-radius: 0.4vw;
 }
+
 .advantage-content {
-  width: 100%;
+  flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  padding: 0 1vw;
 }
+
+
 .advantage-title {
-  font-size: 2vw;
-  color: #222;
-  font-weight: 600;
-  margin-bottom: 0.7vw;
-  text-align: center;
+  font-size: 1.5vw;
+  font-family: "Alimama ShuHei", sans-serif;
+  color: black;
+  font-weight: bold;
+  margin-bottom: 1vw;
+  text-align: left;
 }
+
 .advantage-subheading {
   font-size: 1.1vw;
-  color: #666;
-  margin-bottom: 1.2vw;
-  text-align: center;
+    color: rgba(0, 0, 0, 0.6);
+  margin-bottom: 1.5vw;
+  text-align: left;
+  font-weight: 500;
 }
+
 .advantage-desc {
-  list-style: disc inside;
-  color: #333;
-  font-size: 1vw;
   padding: 0;
   margin: 0;
   text-align: left;
 }
+
+
 .advantage-desc li {
-  margin-bottom: 0.7vw;
+  position: relative;
+  margin-bottom: 0.8vw;
+  font-size: 1vw;
+  color: rgba(0, 0, 0, 0.4);
+  line-height: 1.6;
 }
-.fade-slide-enter-active, .fade-slide-leave-active {
+
+
+
+
+.mode-list {
+  padding: 0;
+  margin: 0 0 2vw 0;
+  width: 100%;
+}
+
+.mode-list li {
+  display: flex;
+  align-items: center;
+  padding: 1vw 2vw;
+  margin-bottom: 1vw;
+  background: #f7f7f9;
+  border-radius: 0.2vw;
+  cursor: pointer;
+  color: #333;
+  font-size: 1.1vw;
+  transition: all 0.2s;
+  border-left: 0.35vw solid transparent;
+  font-weight: 500;
+  opacity: 0;
+}
+
+.mode-list li.active,
+.mode-list li:hover {
+  background: rgba(239, 32, 58, 0.1);
+  color: #ef203a;
+  border-left: 0.35vw solid #ef203a;
+}
+
+
+
+.fade-slide-enter-active,
+.fade-slide-leave-active {
   transition: all 0.5s cubic-bezier(.23,1.02,.64,.97);
 }
-.fade-slide-enter-from, .fade-slide-leave-to {
+
+.fade-slide-enter-from,
+.fade-slide-leave-to {
   opacity: 0;
   transform: translateX(2vw) scale(0.96);
 }
-.fade-slide-enter-to, .fade-slide-leave-from {
+
+.fade-slide-enter-to,
+.fade-slide-leave-from {
   opacity: 1;
   transform: translateX(0) scale(1);
 }

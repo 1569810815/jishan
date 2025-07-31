@@ -1,127 +1,128 @@
 <template>
   <div class="home9">
-    <div class="home9-header">
-      <h3>新闻资讯</h3>
-      <div class="tab-btns">
-        <button
-          :class="{active: activeTab === 'policy'}"
-          @click="activeTab = 'policy'"
-        >行业政策</button>
-        <button
-          :class="{active: activeTab === 'news'}"
-          @click="activeTab = 'news'"
-        >新闻动态</button>
-      </div>
+    <div class="banxin">
+      <h2>新闻资讯</h2>
+    <div class="tab-btns">
+      <button
+        :class="{active: activeTab === 'policy'}"
+        @click="activeTab = 'policy'"
+      >新闻资讯</button>
+      <button
+        :class="{active: activeTab === 'news'}"
+        @click="activeTab = 'news'"
+      >公司动态</button>
     </div>
     <div class="swiper-wrap">
-      <Swiper
-        :slides-per-view="3"
-        :space-between="30"
-        :slides-per-group="3"
-        :loop="true"
-        :loop-fill-group-with-blank="true"
-        :pagination="{
-          clickable: true,
-          el: '.custom-pagination'
-        }"
-        :navigation="true"
-        class="my-swiper"
-      >
-        <SwiperSlide
-          v-for="item in (activeTab === 'policy' ? policyList : newsList)"
-          :key="item.id"
-        >
-          <div class="slide-card">
-            <img :src="item.img" alt="" />
+      <div class="carousel-container">
+        <ul class="carousel-list">
+          <li
+            v-for="item in (activeTab === 'policy' ? policyList : newsList)"
+            :key="item.id"
+            class="slide-card"
+            @click="goNews"
+          >
+            <img :src="item.img" alt="" class="xinwen" />
             <div class="slide-title">{{ item.title }}</div>
             <div class="slide-desc">{{ item.desc }}</div>
-          </div>
-        </SwiperSlide>
-      </Swiper>
-      <div class="custom-pagination"></div>
+            <img src="@/assets/Images/jiantou.png" alt="" class="jiantou">
+          </li>
+        </ul>
+      </div>
     </div>
-    <button class="more-btn" @click="goTo">更多{{ activeTab === 'policy' ? '行业政策' : '新闻动态' }}</button>
+    </div>
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
+import shiyongImg from '@/assets/Images/anliImg.png'
 import { useRouter } from 'vue-router'
-import { Swiper, SwiperSlide } from 'swiper/vue'
-import 'swiper/css'
-import 'swiper/css/pagination'
-import 'swiper/css/navigation'
-const router = useRouter()
+const router =useRouter()
 const activeTab = ref('policy')
-const goTo = ()=>{
-  if(activeTab.value === 'policy'){
-    router.push('dynamic')
-  }else{router.push('Information')}
+const goNews = ()=>{
+  if(activeTab.value == 'policy'){
+    router.push('/dynamic')
+  }else{router.push('/information')}
+
 }
 const policyList = [
-  { id: 1, img: 'https://placehold.co/320x180/2C5AFF/fff?text=政策1', title: '政策标题1', desc: '政策内容摘要1' },
-  { id: 2, img: 'https://placehold.co/320x180/2C5AFF/fff?text=政策2', title: '政策标题2', desc: '政策内容摘要2' },
-  { id: 3, img: 'https://placehold.co/320x180/2C5AFF/fff?text=政策3', title: '政策标题3', desc: '政策内容摘要3' },
-  { id: 4, img: 'https://placehold.co/320x180/2C5AFF/fff?text=政策4', title: '政策标题4', desc: '政策内容摘要4' },
-  { id: 5, img: 'https://placehold.co/320x180/2C5AFF/fff?text=政策5', title: '政策标题5', desc: '政策内容摘要5' },
-  { id: 6, img: 'https://placehold.co/320x180/2C5AFF/fff?text=政策6', title: '政策标题6', desc: '政策内容摘要6' },
+  { id: 1, img: shiyongImg, title: '我国有9000万"低龄老年人"，银发经济发展潜力巨大', desc: '3月23日，民政部副部长唐承沛在中国发展高层论坛2025年年会的专题研讨会上表示，预计2035年之前的10年左右时间，是本世纪剩余时间内我国人口老龄化程度较低的时期，也是积极应对人口老龄化的重要"窗口期"。他指出，要看到我国人口老龄化蕴藏着的独特发展机遇，未来银发经济发展潜力巨大，预计到2035年，银发经济占GDP比重将从6%上升到9%。' },
+  { id: 2, img: shiyongImg, title: '我国有9000万"低龄老年人"，银发经济发展潜力巨大', desc: '3月23日，民政部副部长唐承沛在中国发展高层论坛2025年年会的专题研讨会上表示，预计2035年之前的10年左右时间，是本世纪剩余时间内我国人口老龄化程度较低的时期，也是积极应对人口老龄化的重要"窗口期"。他指出，要看到我国人口老龄化蕴藏着的独特发展机遇，未来银发经济发展潜力巨大，预计到2035年，银发经济占GDP比重将从6%上升到9%。' },
+  { id: 3, img: shiyongImg, title: '我国有9000万"低龄老年人"，银发经济发展潜力巨大', desc: '3月23日，民政部副部长唐承沛在中国发展高层论坛2025年年会的专题研讨会上表示，预计2035年之前的10年左右时间，是本世纪剩余时间内我国人口老龄化程度较低的时期，也是积极应对人口老龄化的重要"窗口期"。他指出，要看到我国人口老龄化蕴藏着的独特发展机遇，未来银发经济发展潜力巨大，预计到2035年，银发经济占GDP比重将从6%上升到9%。' },
 ]
 const newsList = [
-  { id: 11, img: 'https://placehold.co/320x180/ff7a00/fff?text=新闻1', title: '新闻标题1', desc: '新闻内容摘要1' },
-  { id: 12, img: 'https://placehold.co/320x180/ff7a00/fff?text=新闻2', title: '新闻标题2', desc: '新闻内容摘要2' },
-  { id: 13, img: 'https://placehold.co/320x180/ff7a00/fff?text=新闻3', title: '新闻标题3', desc: '新闻内容摘要3' },
-  { id: 14, img: 'https://placehold.co/320x180/ff7a00/fff?text=新闻4', title: '新闻标题4', desc: '新闻内容摘要4' },
-  { id: 15, img: 'https://placehold.co/320x180/ff7a00/fff?text=新闻5', title: '新闻标题5', desc: '新闻内容摘要5' },
-  { id: 16, img: 'https://placehold.co/320x180/ff7a00/fff?text=新闻6', title: '新闻标题6', desc: '新闻内容摘要6' },
+  { id: 11, img: shiyongImg, title: '新闻标题1', desc: '新闻内容摘要1' },
+  { id: 12, img: shiyongImg, title: '新闻标题2', desc: '新闻内容摘要2' },
+  { id: 13, img: shiyongImg, title: '新闻标题3', desc: '新闻内容摘要3' },
 ]
 </script>
 
 <style scoped>
+
+.banxin {
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+
+}
 .home9 {
   width: 100vw;
   min-height: 100vh;
-  background: #f8faff;
+  background: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  padding: 8rem 0 4vw 0;
   box-sizing: border-box;
+  justify-content: flex-start;
+  padding-top: 6.25vw;
 }
-.home9-header {
-  margin-top: 3rem;
-  margin-bottom: 2rem;
-  text-align: center;
-}
-.home9-header h3 {
+
+h2 {
   font-size: 2.2vw;
+  text-align: center;
+  font-family: "Alimama ShuHei", sans-serif;
   color: black;
   font-weight: bold;
-  margin-bottom: 2rem;
+  margin-top: 2vw;
   letter-spacing: 2px;
 }
+
 .tab-btns {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 2vw;
-  margin-bottom: 2vw;
+  margin-right: 50vw;
+  margin-bottom: 4vw;
+  margin-top: 2vw;
 }
+
 .tab-btns button {
   font-size: 1.1vw;
-  padding: 0.7em 2.2em;
+  padding: 0 0 0.5rem 0;
   border: none;
-  border-radius: 8px;
-  background: #e8f0ff;
-  color: #2C5AFF;
+  background: transparent;
+  color: #666;
   font-weight: 500;
   cursor: pointer;
-  transition: background 0.2s, color 0.2s;
+  transition: all 0.2s;
+  position: relative;
 }
+
 .tab-btns button.active,
 .tab-btns button:hover {
-  background: #2C5AFF;
-  color: #fff;
+  color: #ef203a;
 }
+
+.tab-btns button.active:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #ef203a;
+}
+
 .swiper-wrap {
   width: 90vw;
   max-width: 1800px;
@@ -131,86 +132,136 @@ const newsList = [
   flex-direction: column;
   align-items: center;
 }
-.my-swiper {
+
+.carousel-container {
   width: 100%;
-  height: 32vw;
   min-height: 320px;
-  max-height: 600px;
   margin-bottom: 1.5rem;
+  overflow: visible;
 }
+
+.carousel-list {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  transition: transform 0.3s ease;
+}
+
 .slide-card {
-  background: #fff;
-  border-radius: 1.2vw;
+  flex: 0 0 calc(33.333% - 20px);
+  border-radius: 0.8vw;
   box-shadow: 0 2px 16px rgba(44,90,255,0.08);
-  padding: 1.2vw 1vw 1.2vw 1vw;
+  background: #f7f7f9;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  min-height: 28vw;
-  max-height: 600px;
+  min-height: 0;
   transition: box-shadow 0.2s, transform 0.3s;
 }
+
 .slide-card:hover {
   box-shadow: 0 8px 32px rgba(44,90,255,0.13);
   transform: translateY(-8px) scale(1.04);
 }
-.slide-card img {
+.slide-card:hover .slide-title {
+  color: #ef203a;
+}
+.xinwen {
   width: 100%;
-  height: 12vw;
+  height: 16vw;
   min-height: 100px;
-  max-height: 220px;
   object-fit: cover;
-  border-radius: 0.8vw;
-  margin-bottom: 1vw;
+  border-radius: 0.6vw 0.6vw 0 0;
+  flex: 0 0 auto;
 }
+
 .slide-title {
-  font-size: 1.3vw;
-  color: #2C5AFF;
+  padding: 1vw;
+  font-size: 0.9vw;
+  color: black;
   font-weight: 600;
-  margin-bottom: 1vw;
-  text-align: center;
+  flex: 0 0 auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
+
 .slide-desc {
-  font-size: 1vw;
+  font-size: 0.8vw;
   color: #666;
-  text-align: center;
+  padding: 0 1vw;
+  line-height: 1.8;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+  min-height: 0;
+  margin-bottom: 10px;
 }
-.custom-pagination {
+
+.jiantou {
+  /* width: 20px; */
+  height: 20px;
+  margin: 1vw auto 1vw 1vw;
+  align-self: flex-end;
+}
+
+/* .custom-pagination {
   margin-top: 0.5rem;
   text-align: center;
-}
-.more-btn {
-  margin-top: 2.2rem;
-  font-size: 1.1vw;
-  padding: 0.8em 2.5em;
-  background: #2C5AFF;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background 0.2s;
-  box-shadow: 0 2px 12px rgba(44,90,255,0.08);
-}
-.more-btn:hover {
-  background: #1747b0;
-}
+} */
+
 @media (max-width: 1200px) {
-  .home9-header h3 { font-size: 2.5rem; }
+  h2 { font-size: 2.5rem; }
   .tab-btns button { font-size: 1.2rem; }
-  .my-swiper { height: 380px; }
   .slide-card { min-height: 260px; }
-  .slide-card img { height: 120px; }
-  .slide-title { font-size: 1.3rem; }
+  .xinwen { height: 120px; }
+  .slide-title {
+    font-size: 1.3rem;
+    white-space: normal;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    display: -webkit-box;
+  }
   .slide-desc { font-size: 1rem; }
-  .more-btn { font-size: 1rem; }
 }
+
 @media (max-width: 900px) {
   .swiper-wrap { width: 98vw; }
-  .my-swiper { height: 260px; }
-  .slide-card { min-height: 160px; padding: 0.7rem 0.3rem; }
-  .slide-card img { height: 70px; }
+  .carousel-container { width: 90%; }
+  .slide-card {
+    min-height: 160px;
+    flex: 0 0 calc(50% - 15px);
+  }
+  .xinwen { height: 70px; }
   .slide-title { font-size: 1rem; }
-  .slide-desc { font-size: 0.9rem; }
+  .slide-desc {
+    font-size: 0.9rem;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .slide-card {
+    flex: 0 0 100%;
+  }
+  .tab-btns {
+    margin-right: 0;
+    justify-content: center;
+  }
+  .slide-title {
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+  }
+  .slide-desc {
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+  }
 }
 </style>
