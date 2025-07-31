@@ -94,14 +94,14 @@
 }
 
 .company-name {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   font-weight: bold;
   margin-bottom: 15px;
   line-height: 1.3;
 }
 
 .company-en-name {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: black;
   margin-bottom: 15px;
   line-height: 1.5;
@@ -130,7 +130,7 @@
 }
 
 .nav-title {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   font-weight: bold;
   margin-bottom: 3rem;
   position: relative;
@@ -149,7 +149,7 @@
 
 .nav-column li {
   margin-bottom: 1.875rem;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   cursor: pointer;
   transition: color 0.3s;
   color: rgba(0, 0, 0, 0.6);
@@ -167,9 +167,9 @@
 }
 
 .social-title {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   font-weight: bold;
-  margin-bottom: 5rem;
+  margin-bottom: 3.5rem;
   color: black;
 
 }

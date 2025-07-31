@@ -75,14 +75,14 @@ const navItems = ref([
       { Name: "联系我们", src: "/about#contact" },
     ],
   },
-  {
-    Name: "登录",
-    src: "/individualLogin",
-    children: [
-      { Name: "个人登录", src: "/individualLogin" },
-      { Name: "企业登录", src: "/enterpriseLogin" },
-    ],
-  },
+  // {
+  //   Name: "登录",
+  //   src: "/individualLogin",
+  //   children: [
+  //     { Name: "个人登录", src: "/individualLogin" },
+  //     { Name: "企业登录", src: "/enterpriseLogin" },
+  //   ],
+  // },
 ]);
 </script>
 

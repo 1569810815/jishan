@@ -9,7 +9,6 @@
       <p>以客户成功服务、客户支持服务、专业实施服务为核心，助力客户养老业务的成功</p>
       <el-button type="primary" plain @click="toCase">更多客户案例</el-button>
     </div>
-
     </div>
   </div>
 </template>
@@ -24,15 +23,15 @@ const toCase = () => {
   router.push('/case')
 }
 
-// 动画控制变量
-const contentOpacity = ref(0) // 左侧内容透明度
-const imageOpacity = ref(0)   // 右侧图片透明度
 
-// 动画函数
+const contentOpacity = ref(0)
+const imageOpacity = ref(0)
+
+
 function startAnimations() {
-  const duration = 2000 // 动画持续时间
+  const duration = 2000
 
-  // 左侧内容渐显
+
   const startTime = Date.now()
   function animateContent() {
     const elapsed = Date.now() - startTime
@@ -43,7 +42,7 @@ function startAnimations() {
     }
   }
 
-  // 右侧图片延迟渐显
+
   setTimeout(() => {
     const startTime = Date.now()
     function animateImage() {
@@ -55,24 +54,24 @@ function startAnimations() {
       }
     }
     animateImage()
-  }, 300) // 延迟300ms开始图片动画
+  }, 300)
 
   animateContent()
 }
 
-// 缓动函数
+
 function easeOutCubic(t) {
   return 1 - Math.pow(1 - t, 3)
 }
 
-// 监听active状态
+
 watch(() => props.active, (val) => {
   if (val) {
-    // 重置状态
+
     contentOpacity.value = 0
     imageOpacity.value = 0
 
-    // 延迟100ms确保DOM更新完成
+
     setTimeout(() => {
       startAnimations()
     }, 100)
@@ -88,7 +87,7 @@ onMounted(() => {
 
 <style scoped>
 .home8 {
-    background-image: url('@/assets/Images/home8bg.png');
+  background-image: url('@/assets/Images/home8bg.png');
   background-size: cover;
   background-position: center;
   width: 100vw;
@@ -97,10 +96,11 @@ onMounted(() => {
   position: relative;
   overflow: hidden;
 }
+
 .banxin {
   width: 100%;
   display: flex;
-  max-width: 1920px;
+  max-width: 80%;
   margin: 0 auto;
   align-items: center;
   justify-content: space-between;
@@ -109,7 +109,6 @@ onMounted(() => {
 }
 .home8-left {
   flex: 1;
-  max-width: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -135,7 +134,8 @@ onMounted(() => {
   letter-spacing: 1px;
 }
 .home8-left p {
-  font-size: 1.5rem;
+  width: 20%;
+  font-size: 1vw;
   color: rgba(0, 0, 0, 0.6);
   margin: 1.2rem 0;
   text-align: left;
@@ -149,7 +149,7 @@ onMounted(() => {
   font-weight: 500;
   text-align: center;
   line-height: 5px;
-  margin: 50px auto;
+  margin: 50px 0;
   display: block;
 }
 .el-button:hover {

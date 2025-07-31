@@ -3,7 +3,7 @@
     :bg=device
   >
     <template #title>智能设备</template>
-    <template #subtitle>汇养通智能物联场景，智能互联，通链院内智能设备，24小时实时监测老人健康状况。数据系统完善，医疗预警闭环，预防运营风险，老人家属安心。</template>
+    <template #subtitle>积善之家智能物联场景，智能互联，通链院内智能设备，24小时实时监测老人健康状况。数据系统完善，医疗预警闭环，预防运营风险，老人家属安心。</template>
   </Common>
 
   <h2 class="device-title">产品中心</h2>
@@ -60,7 +60,8 @@ import menciImg from '@/assets/Images/menci.png'
 import jinjiannuiImg from '@/assets/Images/jinjiannui.png'
 import hongwaiImg from '@/assets/Images/hongwai.png'
 import device from '@/assets/Images/device.png'
-
+import chanpinliangdian from '@/assets/Images/chanpinliangdian.png'
+import anliImg from '@/assets/Images/anliImg.png'
 const activeName = ref('全部')
 
 // 设备列表数据
@@ -97,11 +98,11 @@ const getProductDetail = (productName) => {
       mainImage: diedaoImg,
       description: '智能跌倒报警器 是一款专为老年人设计的紧急呼救设备，通过高精度传感器和AI算法实时监测人体姿态变化，在检测到跌倒或突发状况时自动触发报警，并通知家属、护工或急救中心，大幅缩短救援响应时间，降低因跌倒导致的二次伤害风险。尤其适合独居、行动不便或患有心脑血管疾病的老年群体。',
       features: [
-        { icon: diedaoImg, title: '精准跌倒识别', desc: '采用三轴加速度计+陀螺仪+AI算法，区分跌倒（如突然倒地）与日常动作（弯腰、坐下），减少误报率（准确率＞95%）' },
-        { icon: '/icons/alert.png', title: '即时报警', desc: '跌倒后30秒内自动通知护理人员' },
-        { icon: '/icons/battery.png', title: '多场景覆盖', desc: '内置GPS/Wi-Fi/蓝牙定位，室内外均可追踪位置，方便快速救援' },
-        { icon: '/icons/battery.png', title: '智能联动', desc: '可联动智能家居（如开灯、解锁门禁），或接入养老机构/社区应急响应平台' },
-        { icon: '/icons/waterproof.png', title: '防水设计', desc: 'IP67防水等级，浴室也可使用' }
+        { icon: chanpinliangdian, title: '精准跌倒识别', desc: '采用三轴加速度计+陀螺仪+AI算法，区分跌倒（如突然倒地）与日常动作（弯腰、坐下），减少误报率（准确率＞95%）' },
+        { icon: chanpinliangdian, title: '即时报警', desc: '跌倒后30秒内自动通知护理人员' },
+        { icon: chanpinliangdian, title: '多场景覆盖', desc: '内置GPS/Wi-Fi/蓝牙定位，室内外均可追踪位置，方便快速救援' },
+        { icon: chanpinliangdian, title: '智能联动', desc: '可联动智能家居（如开灯、解锁门禁），或接入养老机构/社区应急响应平台' },
+        { icon: chanpinliangdian, title: '防水设计', desc: 'IP67防水等级，浴室也可使用' }
       ],
       specifications: [
         { name: '产品尺寸', value: 'Φ112.0mmx32mm' },
@@ -115,9 +116,9 @@ const getProductDetail = (productName) => {
         { name: '工作温度', value: '-10℃~55℃' }
       ],
       usageScenes: [
-        { image: '/images/scenes/bedroom.jpg', title: '卧室使用' },
-        { image: '/images/scenes/bathroom.jpg', title: '浴室使用' },
-        { image: '/images/scenes/livingroom.jpg', title: '客厅使用' }
+        { image: anliImg, title: '卧室使用' },
+        { image: anliImg, title: '浴室使用' },
+        { image: anliImg, title: '客厅使用' }
       ]
     },
 

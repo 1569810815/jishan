@@ -20,16 +20,13 @@
       <!-- 产品特点 - 改为竖向排列 -->
       <div class="product-section">
         <h3>产品特点</h3>
-        <div class="features-vertical">
+        <div class="features-horizontal">
           <div v-for="(feature, index) in product.features" :key="index" class="feature-item">
-            <div class="feature-content">
-              <img :src="feature.icon" class="feature-icon">
-              <div class="feature-text">
-                <h4>{{ feature.title }}</h4>
-                <p>{{ feature.desc }}</p>
-              </div>
+            <img :src="feature.icon" class="feature-icon">
+            <div class="feature-text">
+              <h4>{{ feature.title }}</h4>
+              <p>{{ feature.desc }}</p>
             </div>
-            <div v-if="index < product.features.length - 1" class="feature-divider"></div>
           </div>
         </div>
       </div>
@@ -115,11 +112,14 @@ defineProps({
 
 .product-section h3 {
   font-size: 2rem;
-  font-weight: 500;
-  color: #333;
+  font-weight: bold;
+  color: #000;
   margin-bottom: 30px;
-  padding-bottom: 15px;
+  padding-bottom: 10px;
+  border-radius: 4px;
   border-bottom: 2px solid #f0f0f0;
+  padding-left: 1.25rem;
+  border-left: 6px solid #ef203a;
 }
 
 .description {
@@ -129,51 +129,47 @@ defineProps({
 }
 
 /* 竖向排列的产品特点 */
-.features-vertical {
-  display: flex;
-  flex-direction: column;
+.features-horizontal {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
+  margin: 30px 0;
 }
 
 .feature-item {
-  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.feature-content {
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
+.feature-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.12);
 }
 
 .feature-icon {
-  width: 80px;
-  height: 80px;
-  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  margin-bottom: 15px;
   object-fit: contain;
 }
 
-.feature-text {
-  flex: 1;
-}
-
 .feature-text h4 {
-  font-size: 1.4rem;
-  font-weight: 500;
-  color: #333;
-  margin: 0 0 10px 0;
+  font-size: 1.2rem;
+  font-weight: bolder;
+  color: #000;
+  margin: 0 0 20px 0;
 }
 
 .feature-text p {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: #555;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
   margin: 0;
-}
-
-.feature-divider {
-  height: 1px;
-  background: #eee;
-  margin: 25px 0;
 }
 
 /* 技术参数表格 */
@@ -213,7 +209,7 @@ defineProps({
   height: 250px;
   object-fit: cover;
   border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  /* box-shadow: 0 4px 12px rgba(0,0,0,0.1); */
   transition: transform 0.3s ease;
 }
 
@@ -222,9 +218,10 @@ defineProps({
 }
 
 .scene-title {
-  font-size: 1.2rem;
+  font-size: 1.6rem;
+  font-weight: 700;
   text-align: center;
-  margin-top: 15px;
+  margin-top: 1.875rem;
   color: #444;
 }
 

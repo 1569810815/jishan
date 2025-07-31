@@ -24,7 +24,7 @@
 import { ref } from 'vue'
 import EmailForm from './EmailForm.vue'
 import { ElNotification } from 'element-plus';
-const isOpen = ref(true)
+const isOpen = ref(false)
 
 const toggleConsultation = () => {
   isOpen.value = !isOpen.value
