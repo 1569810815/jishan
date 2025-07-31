@@ -1,15 +1,21 @@
 <template>
   <div class="home4">
-      <h2>主营业务</h2>
-      <p>集团以“老有所养、依、教、学、为、乐”为核心，构建覆盖长者全生命周期的错爱准话服务模块，提供全维度支持</p>
+    <h2>主营业务</h2>
+    <p>集团以"老有所养、依、教、学、为、乐"为核心，构建覆盖长者全生命周期的错爱准话服务模块，提供全维度支持</p>
     <div class="home4-container">
       <div class="content-wrapper">
-        <div class="home4-left" :style="{ transform: `translateX(${leftOffset}px)` }">
+        <div
+          class="home4-left"
+          :style="{ transform: `translateX(${leftOffset}px)` }"
+          @mouseenter="stopAutoSwitch"
+          @mouseleave="startAutoSwitch"
+        >
           <ul class="mode-list">
             <li
               v-for="(item, idx) in home4List"
               :key="item.id"
               :class="{active: idx === activeIndex}"
+              @mouseenter="handleHover(idx)"
               @click="activeIndex = idx"
               :style="{ opacity: liOpacity[idx] }"
             >
@@ -17,7 +23,12 @@
             </li>
           </ul>
         </div>
-        <div class="home4-right" :style="{ transform: `translateX(${rightOffset}px)` }">
+        <div
+          class="home4-right"
+          :style="{ transform: `translateX(${rightOffset}px)` }"
+          @mouseenter="stopAutoSwitch"
+          @mouseleave="startAutoSwitch"
+        >
           <transition name="fade" mode="out-in">
             <div class="img-box" :key="activeIndex">
               <div>
@@ -32,19 +43,16 @@
         </div>
       </div>
     </div>
-    <!-- <el-button @click="toSystem" type="primary">查看详情</el-button> -->
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted, onBeforeUnmount, watch } from 'vue'
-// import { useRouter } from 'vue-router';
 import home4Img1 from '@/assets/Images/home4Img1.png'
 import home4Img2 from '@/assets/Images/home4Img2.png'
 import home4Img3 from '@/assets/Images/home4Img3.png'
 import home4Img4 from '@/assets/Images/home4Img4.png'
 import home4Img5 from '@/assets/Images/home4Img5.png'
-
 
 const props = defineProps({ active: Boolean })
 // const router = useRouter()
@@ -95,26 +103,39 @@ const home4List = ref([
 
 const activeIndex = ref(0)
 let timer = null
+const isHovering = ref(false)
 
 // 动画控制变量
 const leftOffset = ref(-300)
 const rightOffset = ref(300)
 const liOpacity = ref(home4List.value.map(() => 0))
 
+const handleHover = (idx) => {
+  if (idx !== activeIndex.value) {
+    activeIndex.value = idx
+  }
+}
+
 const startAutoSwitch = () => {
+  if (isHovering.value) return
+
+  stopAutoSwitch()
   timer = setInterval(() => {
     activeIndex.value = (activeIndex.value + 1) % home4List.value.length
-  }, 3000)
+  }, 5000) // 调整为5秒切换一次
 }
 
 const stopAutoSwitch = () => {
-  if (timer) clearInterval(timer)
+  if (timer) {
+    clearInterval(timer)
+    timer = null
+  }
 }
 
 // 动画函数
 function startAnimations() {
   // 左侧整体滑入动画
-  const duration = 100 // 动画持续时间
+  const duration = 800 // 延长动画时间
   const startTime = Date.now()
 
   function animateLeft() {
@@ -144,7 +165,7 @@ function startAnimations() {
   home4List.value.forEach((_, index) => {
     setTimeout(() => {
       liOpacity.value[index] = 1
-    }, index * 150 + 300) // 延迟300ms后开始，每个元素间隔150ms
+    }, index * 150 + 300)
   })
 
   animateLeft()
@@ -159,16 +180,19 @@ function easeOutCubic(t) {
 // 监听active状态
 watch(() => props.active, (val) => {
   if (val) {
-    // 重置状态
     leftOffset.value = -1000
     rightOffset.value = 1000
     liOpacity.value = home4List.value.map(() => 0)
 
-    // 延迟100ms确保DOM更新完成
     setTimeout(() => {
       startAnimations()
     }, 100)
   }
+})
+
+// 监听activeIndex变化
+watch(activeIndex, () => {
+  // 可以在这里添加切换时的额外动画效果
 })
 
 onMounted(() => {
@@ -256,6 +280,8 @@ p {
 }
 
 .mode-list li {
+    position: relative;
+  overflow: hidden;
   padding: 1vw 1.5vw;
   margin-bottom: 1vw;
   background: #fff;
@@ -324,18 +350,7 @@ p {
   color: #666;
   line-height: 1.5;
 }
-/* .el-button{
-  font-size: 0.8vw;
-  display: block;
-  width: 18.75rem;
-  margin: 0 auto;
-  margin-top: -1vw;
-  height: 4rem;
-  background-color: #ef203a;
-}
-.el-button:hover {
-  background-color: #d1021c;
-} */
+
 .fade-enter-active, .fade-leave-active {
   transition: all 0.5s cubic-bezier(.23,1.02,.64,.97);
 }

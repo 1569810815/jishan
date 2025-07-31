@@ -89,8 +89,9 @@ h2 {
 
 .tab-btns {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 2vw;
+  width: 20%;
   margin-right: 50vw;
   margin-bottom: 4vw;
   margin-top: 2vw;

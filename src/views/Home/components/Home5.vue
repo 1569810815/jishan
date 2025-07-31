@@ -5,39 +5,36 @@
     <div class="home5-container">
       <div class="content-wrapper">
         <div class="home5-left" :style="{ transform: `translateY(${leftOffset}px)` }">
-      <ul class="mode-list">
-        <li
-          v-for="(item, idx) in home4List"
-          :key="item.id"
-          :class="{active: idx === activeIndex}"
-          @click="activeIndex = idx"
-          :style="{ opacity: liOpacity[idx] }"
-        >
-          <span>{{ item.tatle }}</span>
-        </li>
-      </ul>
-    </div>
-    <div class="home5-right" :style="{ transform: `translateY(${rightOffset}px)` }">
-      <transition name="fade-slide" mode="out-in">
-        <div class="advantage-card" :key="activeIndex">
-          <div class="advantage-content">
-            <h4 class="advantage-title">{{ home4List[activeIndex].tatle }}</h4>
-            <div class="advantage-subheading">{{ home4List[activeIndex].subheading }}</div>
-            <ul class="advantage-desc">
-              <li>{{ home4List[activeIndex].text1 }}</li>
-              <li>{{ home4List[activeIndex].text2 }}</li>
-              <li>{{ home4List[activeIndex].text3 }}</li>
-            </ul>
-          </div>
-          <img class="advantage-img" :src="home4List[activeIndex].url" :alt="home4List[activeIndex].tatle" />
-
+          <ul class="mode-list">
+            <li
+              v-for="(item, idx) in home4List"
+              :key="item.id"
+              :class="{active: idx === activeIndex}"
+              @mouseenter="activeIndex = idx"
+              :style="{ opacity: liOpacity[idx] }"
+            >
+              <span>{{ item.tatle }}</span>
+            </li>
+          </ul>
         </div>
-      </transition>
-    </div>
+        <div class="home5-right" :style="{ transform: `translateY(${rightOffset}px)` }">
+          <transition name="fade-slide" mode="out-in">
+            <div class="advantage-card" :key="activeIndex">
+              <div class="advantage-content">
+                <h4 class="advantage-title">{{ home4List[activeIndex].tatle }}</h4>
+                <div class="advantage-subheading">{{ home4List[activeIndex].subheading }}</div>
+                <ul class="advantage-desc">
+                  <li>{{ home4List[activeIndex].text1 }}</li>
+                  <li>{{ home4List[activeIndex].text2 }}</li>
+                  <li>{{ home4List[activeIndex].text3 }}</li>
+                </ul>
+              </div>
+              <img class="advantage-img" :src="home4List[activeIndex].url" :alt="home4List[activeIndex].tatle" />
+            </div>
+          </transition>
+        </div>
       </div>
-
     </div>
-
   </div>
 </template>
 
@@ -134,14 +131,12 @@ function easeOutCubic(t) {
   return 1 - Math.pow(1 - t, 3)
 }
 
-
 watch(() => props.active, (val) => {
   if (val) {
     // 重置状态
     leftOffset.value = -1000
     rightOffset.value = 1000
     liOpacity.value = home4List.value.map(() => 0)
-
 
     setTimeout(() => {
       startAnimations()
@@ -161,13 +156,13 @@ onMounted(() => {
 .home5 {
   display: flex;
   flex-direction: column;
-    background-color:#fff;
+  background-color:#fff;
   min-height: 100vh;
   width: 100vw;
-
   padding: 6vw 12vw;
   box-sizing: border-box;
 }
+
 
 .home5-container {
   display: flex;
@@ -280,13 +275,8 @@ p {
 
 
 
-.mode-list {
-  padding: 0;
-  margin: 0 0 2vw 0;
-  width: 100%;
-}
-
 .mode-list li {
+  position: relative;
   display: flex;
   align-items: center;
   padding: 1vw 2vw;
@@ -297,10 +287,12 @@ p {
   color: #333;
   font-size: 1.1vw;
   transition: all 0.2s;
-  border-left: 0.35vw solid transparent;
   font-weight: 500;
   opacity: 0;
 }
+
+
+
 
 .mode-list li.active,
 .mode-list li:hover {
@@ -309,22 +301,21 @@ p {
   border-left: 0.35vw solid #ef203a;
 }
 
-
-
-.fade-slide-enter-active,
-.fade-slide-leave-active {
-  transition: all 0.5s cubic-bezier(.23,1.02,.64,.97);
+.fade-slide-enter-active {
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-.fade-slide-enter-from,
+.fade-slide-leave-active {
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.fade-slide-enter-from {
+  opacity: 0;
+  transform: translateX(30px);
+}
+
 .fade-slide-leave-to {
   opacity: 0;
-  transform: translateX(2vw) scale(0.96);
-}
-
-.fade-slide-enter-to,
-.fade-slide-leave-from {
-  opacity: 1;
-  transform: translateX(0) scale(1);
+  transform: translateX(-30px);
 }
 </style>

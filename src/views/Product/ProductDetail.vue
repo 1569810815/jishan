@@ -90,7 +90,6 @@ defineProps({
   font-weight: 300;
 }
 
-/* 主图放大样式 */
 .product-main-image {
   margin: 30px 0 50px;
   text-align: center;
@@ -128,7 +127,6 @@ defineProps({
   color: #444;
 }
 
-/* 竖向排列的产品特点 */
 .features-horizontal {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -148,7 +146,6 @@ defineProps({
 
 .feature-item:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.12);
 }
 
 .feature-icon {
@@ -172,7 +169,7 @@ defineProps({
   margin: 0;
 }
 
-/* 技术参数表格 */
+
 .spec-table {
   width: 100%;
   border-collapse: collapse;
@@ -191,7 +188,7 @@ defineProps({
   font-weight: 500;
 }
 
-/* 使用场景大图展示 */
+
 .usage-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -209,7 +206,6 @@ defineProps({
   height: 250px;
   object-fit: cover;
   border-radius: 10px;
-  /* box-shadow: 0 4px 12px rgba(0,0,0,0.1); */
   transition: transform 0.3s ease;
 }
 
@@ -225,7 +221,6 @@ defineProps({
   color: #444;
 }
 
-/* 响应式设计 */
 @media (max-width: 768px) {
   .product-header h2 {
     font-size: 2rem;

@@ -26,7 +26,7 @@
               <p>{{ item.tatle }}</p>
         </li>
       </ul>
-      <el-button type="primary" plain class="btn">点击申请免费试用</el-button>
+      <TryoutBtn></TryoutBtn>
     </div>
   </div>
 
@@ -51,6 +51,7 @@
 </template>
 
 <script setup>
+import TryoutBtn from '@/components/TryoutBtn.vue'
 import Common from '@/components/Common.vue'
 import ToTop from '@/components/ToTop.vue'
 import Footer from '@/components/Footer.vue'
@@ -194,7 +195,6 @@ const caseList = ref([
   gap: 1rem;
 }
 
-/* 添加箭头分隔符 - 只为每行的第1和第2个li添加 */
 .scenario ul li:nth-child(3n+1)::after,
 .scenario ul li:nth-child(3n+2)::after {
   content: '>>';
@@ -207,14 +207,12 @@ const caseList = ref([
   font-size: 1.8rem;
 }
 
-/* 确保最后一个li没有箭头 */
 .scenario ul li:last-child::after {
   display: none;
 }
 
 
 
-/* 文字样式保持不变 */
 .scenario ul li p:first-child {
   font-family: "Alimama ShuHei", sans-serif;
   font-size: 1.8rem;
@@ -352,7 +350,6 @@ el-button {
   word-break: break-all;
 }
 
-/* 第三列改为左侧弹出 */
 .example ul li:nth-child(3n) .case-text-pop {
   left: auto;
   right: 100%;

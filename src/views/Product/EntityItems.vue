@@ -132,7 +132,7 @@ const processList = ref([
 .processbg h2 {
   font-family: "Alimama ShuHei", sans-serif;
   font-weight: bold;
-  font-size: 1.8vw;
+  font-size: 3rem;
   color: #000;
   text-align: center;
 }
@@ -156,7 +156,7 @@ const processList = ref([
   cursor: pointer;
   transition: all 0.3s ease;
     color: #000;
-  font-size: 0.6vw;
+  font-size: 1rem;
 }
 .processbg ul li:nth-child(1) {
   top: 10%;
@@ -193,31 +193,31 @@ const processList = ref([
 }
 .processbg ul li:nth-child(9) {
   transform: rotate(-32deg);
-  font-size: 1.4vw;
+  font-size: 2.2rem;
   color: #ef203a;
   top: 30%;
   left: 25%;
 }
 .processbg ul li:nth-child(10) {
   transform: rotate(32deg);
-  font-size: 1.4vw;
+  font-size: 2.2rem;
   color: #ef203a;
   top: 30%;
-  left: 63%;
+  left: 65%;
 }
 .processbg ul li:nth-child(11) {
   transform: rotate(32deg);
-  font-size: 1.4vw;
+  font-size: 2.2rem;
   color: #ef203a;
-  top: 72%;
-  left: 24%;
+  top: 75%;
+  left: 25%;
 }
 .processbg ul li:nth-child(12) {
   transform: rotate(-32deg);
-  font-size: 1.4vw;
+  font-size: 2.2rem;
   color: #ef203a;
-  top: 72%;
-  left: 64%;
+  top: 75%;
+  left: 65%;
 }
 @media (max-width: 768px) {
   .entity-item {
