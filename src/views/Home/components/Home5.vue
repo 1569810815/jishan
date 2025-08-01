@@ -1,7 +1,7 @@
 <template>
   <div class="home5">
-    <h2>平台优势</h2>
-    <p>从营销到服务 从管理到运营 全面助力养老机构信息化建设</p>
+    <h2>核心文化</h2>
+    <p>从精准营销到智慧服务，从数字运营到安全守护，全方位赋能养老机构数字化转型</p>
     <div class="home5-container">
       <div class="content-wrapper">
         <div class="home5-left" :style="{ transform: `translateY(${leftOffset}px)` }">
@@ -50,7 +50,7 @@ const props = defineProps({ active: Boolean })
 const home4List = ref([
   {id:1001,
     url:yingxiaoImg,
-    tatle:'营销',
+    tatle:'公平',
     subheading:'智慧营销 · 精准触达银龄需求',
     text1:'多渠道适老入口:大字版APP/语音助手/子女代操作，覆盖不同数字能力老人',
     text2:'VR沉浸式体验:养老院VR漫游展示，咨询转化率提升40%',
@@ -58,7 +58,7 @@ const home4List = ref([
   },
   {id:1002,
     url:yunyingImg,
-    tatle:'运营',
+    tatle:'公益',
     subheading:'智能运营 · 降本增效',
     text1:'数字化管理中台:床位/护工/药品全流程线上化，人力效率提升55%',
     text2:'AI应急响应:跌倒监测+一键呼叫，5分钟快速救援',
@@ -66,7 +66,7 @@ const home4List = ref([
   },
   {id:1003,
     url:fuwuImg,
-    tatle:'服务',
+    tatle:'勇敢',
     subheading:'温情服务 · 科技有温度',
     text1:'24小时安全守护:智能药盒+水浸传感器，预防居家意外',
     text2:'情感关怀系统:AI识别情绪波动，自动触发视频慰问',
@@ -74,7 +74,7 @@ const home4List = ref([
   },
   {id:1004,
     url:anxinImg,
-    tatle:'安心',
+    tatle:'学习',
     subheading:'安心保障 · 全程可信赖',
     text1:'医疗级数据安全:本地化存储+权限分级，CCRC认证保障',
     text2:'服务区块链存证:助浴/用药全程上链，纠纷率下降76%',

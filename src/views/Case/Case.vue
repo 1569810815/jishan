@@ -12,7 +12,7 @@
   </div>
   <div class="profile-text">
     <h2>全新的客户成功服务模式</h2>
-    <p>以客户成功服务、客户支持服务、专业实施服务为核心</p>
+    <p>以全方位、多样化服务，为社区长者构建「一站式」养老解决方案</p>
   </div>
 </div>
 
@@ -349,6 +349,7 @@ el-button {
   white-space: normal;
   word-break: break-all;
 }
+
 
 .example ul li:nth-child(3n) .case-text-pop {
   left: auto;

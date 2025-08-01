@@ -1,9 +1,8 @@
-/* src/assets/css/fonts.css */
 @font-face {
-  font-family: "Alimama ShuHei";  /* 自定义字体名称 */
+  font-family: "Alimama ShuHei";
   src:
     url("../fonts/ALIMAMASHUHEITI-BOLD.TTF") format("truetype");
   font-weight: bold;
   font-style: normal;
-  font-display: swap;  /* 优化加载体验 */
+  font-display: swap;
 }

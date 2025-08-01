@@ -11,38 +11,42 @@
 
       <div class="footer-nav">
         <div class="nav-column">
-          <h3 class="nav-title">产品与简介</h3>
+          <h3 class="nav-title">业务与产品</h3>
           <ul>
-            <li>养老机构管理层系统</li>
-            <li>养老机构管理层系统</li>
-            <li>养老机构管理层系统</li>
-            <li>养老机构管理层系统</li>
+            <li @click="router.push('/entityItems')">实体项目</li>
+            <li @click="router.push('/coordination')">政企协同</li>
+            <li @click="router.push('/escrowFranchise')">托管加盟</li>
+            <li @click="router.push('/salesPlatform')">销售平台</li>
+            <li @click="router.push('/ecologicalExpansion')">生态拓展</li>
+            <li @click="router.push('/device')">智能硬件支持</li>
           </ul>
         </div>
 
         <div class="nav-column">
           <h3 class="nav-title">客户案例</h3>
           <ul>
-            <li>模块一</li>
-            <li>模块二</li>
+            <li @click="router.push('/case')">服务流程</li>
+            <li @click="router.push('/case')">经典案例</li>
           </ul>
         </div>
 
         <div class="nav-column">
           <h3 class="nav-title">新闻中心</h3>
           <ul>
-            <li>新闻资讯</li>
-            <li>公司动态</li>
+            <li @click="router.push('/information')">新闻资讯</li>
+            <li @click="router.push('/dynamic')">公司动态</li>
           </ul>
         </div>
 
         <div class="nav-column">
           <h3 class="nav-title">关于我们</h3>
           <ul>
-            <li>关于京雅</li>
-            <li>核心技术</li>
-            <li>合作伙伴</li>
-            <li>荣誉证书</li>
+            <li @click="router.push('/about')">关于积善</li>
+            <li @click="router.push('/about')">核心技术</li>
+            <li @click="router.push('/about')">合作伙伴</li>
+            <li @click="router.push('/about')">荣誉证书</li>
+            <li @click="scrollToAnchor('/about', 'contact')">联系我们</li>
+
           </ul>
         </div>
       </div>
@@ -62,13 +66,27 @@
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router';
+const router = useRouter();
+const scrollToAnchor = (path, anchorId) => {
+
+  if (router.currentRoute.value.path === path) {
+    const element = document.getElementById(anchorId)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+    }
+  } else {
+
+    router.push({ path: path, hash: `#${anchorId}` })
+  }
+}
 </script>
 
 <style scoped>
 .site-footer {
   background-color: #ffc5c7;
   color: black;
-  padding: 100px 0 20px;
+  padding: 80px 0 20px;
   font-family: 'Arial', sans-serif;
 }
 
@@ -96,23 +114,22 @@
 .company-name {
   font-size: 1.4rem;
   font-weight: bold;
-  margin-bottom: 15px;
+  margin-bottom:2rem;
   line-height: 1.3;
 }
 
 .company-en-name {
   font-size: 1rem;
   color: black;
-  margin-bottom: 15px;
+  margin-bottom: 1.6rem;
   line-height: 1.5;
 }
 
 .company-address,
 .service-hotline {
   font-size: 1.1rem;
-  margin: 8px 0;
+  margin-top: 1.6rem;
   color: black;
-
   line-height: 1.5;
 }
 
@@ -148,7 +165,7 @@
 }
 
 .nav-column li {
-  margin-bottom: 1.875rem;
+  margin-bottom: 0.5rem;
   font-size: 1.2rem;
   cursor: pointer;
   transition: color 0.3s;
@@ -191,11 +208,10 @@
 
 .copyright {
   text-align: center;
-  margin-top: 30px;
+  margin-top: 1.25rem;
   padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.6);
+  font-size: .9rem;
+  color: rgba(0, 0, 0, 0.6);
 }
 
 /* 响应式调整 */

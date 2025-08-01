@@ -1,8 +1,8 @@
 <template>
   <div class="home3">
     <div class="banxin">
-      <h2>全客户端适配</h2>
-      <p>一套设计风格，统一操作体验；数据信息共享，业务高效运转 </p>
+      <h2>全平台无缝适配</h2>
+      <p>统一设计语言，操作体验一致；数据实时同步，业务高效协同 </p>
       <ul class="client-list">
         <li v-for="(item, index) in home3List" :key="item.id" :style="{ opacity: liOpacity[index] }">
           <img :src="item.url" alt="">

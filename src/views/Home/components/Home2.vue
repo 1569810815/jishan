@@ -40,7 +40,7 @@ const home2List = ref([
   {id:1004,url:home2icon4,number:18.08,project:'覆盖床位数',unit:'余万张'},
   {id:1005,url:home2icon5,number:5600,project:'平台社区数',unit:'余'},
   {id:1006,url:home2icon6,number:1200,project:'服务老人数',unit:'余万'},
-  {id:1007,url:home2icon7,number:35,project:'综合体数',unit:'个'},
+  {id:1007,url:home2icon7,number:1455378,project:'公益志愿服务',unit:'次'},
   {id:1008,url:home2icon8,number:100000,project:'平台服务人员数',unit:'余'},
 ])
 
