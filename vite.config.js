@@ -9,7 +9,7 @@ export default defineConfig({
     vue(),
     vueDevTools(),
   ],
-  base: '/',
+  base: '/jishan/',
   build: {
     outDir: 'docs',
     assetsDir: 'assets',
