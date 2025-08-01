@@ -1,49 +1,39 @@
 <template>
   <div class="home6">
 
-     <div class="banxin">
+    <div class="banxin">
 
       <h2>特色功能支持</h2>
       <p>
-       智能物联智慧养老深度融合物联网感知技术、AI智能算法与大数据分析能力，构建起全天候、无接触的健康监护网络。通过毫米波雷达精准监测、多源传感器数据融合及AI行为识别技术，实时捕捉老人心率、呼吸、血压等生命体征变化，智能分析日常行为模式，毫秒级识别跌倒等意外风险，实现24小时不间断的智能守护与异常预警，让科技为银发生活撑起隐形的安全防护网
+        智能物联智慧养老深度融合物联网感知技术、AI智能算法与大数据分析能力，构建起全天候、无接触的健康监护网络。通过毫米波雷达精准监测、多源传感器数据融合及AI行为识别技术，实时捕捉老人心率、呼吸、血压等生命体征变化，智能分析日常行为模式，毫秒级识别跌倒等意外风险，实现24小时不间断的智能守护与异常预警，让科技为银发生活撑起隐形的安全防护网
       </p>
 
 
 
-    <div class="content-wrapper">
-      <!-- 左侧图片 -->
-      <div class="phone-container">
-        <img class="phone-bg" :src="phonebg" alt="手机背景" />
-        <div class="hardware-image-container">
-          <transition name="fade-slide" mode="out-in">
-            <img
-              v-if="home6List[activeIndex]"
-              class="hardware-img"
-              :key="home6List[activeIndex].img"
-              :src="home6List[activeIndex].img"
-              :alt="home6List[activeIndex].tatle"
-            />
-          </transition>
+      <div class="content-wrapper">
+        <!-- 左侧图片 -->
+        <div class="phone-container">
+          <img class="phone-bg" :src="phonebg" alt="手机背景" />
+          <div class="hardware-image-container">
+            <transition name="fade-slide" mode="out-in">
+              <img v-if="home6List[activeIndex]" class="hardware-img" :key="home6List[activeIndex].img"
+                :src="home6List[activeIndex].img" :alt="home6List[activeIndex].tatle" />
+            </transition>
+          </div>
+        </div>
+
+        <!-- 右侧列表 -->
+        <div class="hardware-list-container">
+          <ul class="hardware-list">
+            <li v-for="(item, idx) in home6List" :key="item.id" :class="{ active: idx === activeIndex }"
+              @click="activeIndex = idx" @mouseenter="activeIndex = idx">
+              <span>{{ item.tatle }}</span>
+            </li>
+          </ul>
+          <el-button @click="toDevice" class="btn" type="primary">查看更多设备信息</el-button>
         </div>
       </div>
-
-      <!-- 右侧列表 -->
-      <div class="hardware-list-container">
-        <ul class="hardware-list">
-          <li
-            v-for="(item, idx) in home6List"
-            :key="item.id"
-            :class="{active: idx === activeIndex}"
-            @click="activeIndex = idx"
-            @mouseenter="activeIndex = idx"
-          >
-            <span>{{ item.tatle }}</span>
-          </li>
-        </ul>
-        <el-button @click="toDevice" class="btn" type="primary">查看更多设备信息</el-button>
-      </div>
     </div>
-     </div>
 
   </div>
 </template>

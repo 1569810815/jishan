@@ -13,7 +13,6 @@
     type="card"
     class="device-tabs"
   >
-    <!-- 全部产品列表 -->
     <el-tab-pane label="全部" name="全部">
       <ul class="device-list">
         <li
@@ -28,7 +27,6 @@
       </ul>
     </el-tab-pane>
 
-    <!-- 各分类产品详情 -->
     <el-tab-pane
       v-for="cat in categories"
       :key="cat"
@@ -64,7 +62,6 @@ import chanpinliangdian from '@/assets/Images/chanpinliangdian.png'
 import anliImg from '@/assets/Images/anliImg.png'
 const activeName = ref('全部')
 
-// 设备列表数据
 const deviceList = ref([
   {id:1001, img: diedaoImg, label:'跌倒报警器', tatle:'跌倒报警器'},
   {id:1002, img: ranqiImg, label:'智能燃气报警器', tatle:'智能燃气报警器'},
@@ -89,7 +86,6 @@ const categories = [
   '智能红外传感器'
 ]
 
-// 获取产品详情数据
 const getProductDetail = (productName) => {
   const productDetails = {
     '跌倒报警器': {
@@ -352,7 +348,6 @@ const scrollToTop = () => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
 }
 
-// 切换到对应产品的标签页
 const switchToProductTab = (item) => {
   activeName.value = item.label
 }

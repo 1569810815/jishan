@@ -44,7 +44,7 @@
             <li @click="router.push('/about')">关于积善</li>
             <li @click="router.push('/about')">核心技术</li>
             <li @click="router.push('/about')">合作伙伴</li>
-            <li @click="router.push('/about')">荣誉证书</li>
+            <li @click="router.push('/about')">资质荣誉</li>
             <li @click="scrollToAnchor('/about', 'contact')">联系我们</li>
 
           </ul>
